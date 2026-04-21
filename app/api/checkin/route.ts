@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-//simpan sementara (nanti diganti database)
+// sementara (nanti ganti DB)
 let history: any[] = [];
 
 export async function GET() {
@@ -15,26 +15,37 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { journal, sleep, workload } = body;
 
-    if (!journal || !sleep || !workload) {
+    // ✅ VALIDASI FIX
+    if (!journal || sleep === undefined || !workload) {
       return NextResponse.json(
         { status: 'error', message: 'Input tidak lengkap' },
         { status: 400 }
       );
     }
 
+    // ✅ VALIDASI RANGE
+    if (sleep < 0 || sleep > 24) {
+      return NextResponse.json(
+        { status: 'error', message: 'Sleep harus 0 - 24 jam' },
+        { status: 400 }
+      );
+    }
+
+    // ✅ LOGIC LEBIH MASUK AKAL
     let risk = 'low';
     let score = 30;
 
-    //AI SEMENTARA
-    if (sleep < 5) {
+    if (sleep < 5 && workload === 'high') {
       risk = 'high';
-      score = 80;
-    } else if (sleep < 7) {
+      score = 90;
+    } else if (sleep < 6) {
       risk = 'medium';
-      score = 60;
+      score = 65;
     }
 
+    // workload adjustment
     if (workload === 'high') score += 10;
+    else if (workload === 'medium') score += 5;
 
     const newData = {
       id: Date.now(),
@@ -52,6 +63,7 @@ export async function POST(req: Request) {
       status: 'success',
       data: newData,
     });
+
   } catch (error) {
     return NextResponse.json(
       { status: 'error', message: 'Server error' },
