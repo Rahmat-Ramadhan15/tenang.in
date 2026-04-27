@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function Checkin() {
+export default function CheckinPage() {
   const [journal, setJournal] = useState("");
   const [sleep, setSleep] = useState(6);
   const [workload, setWorkload] = useState("medium");
@@ -25,21 +25,46 @@ export default function Checkin() {
     try {
       const res = await fetch("/api/checkin", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ journal, sleep, workload, mood }),
       });
 
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        alert("Response server rusak");
+        setLoading(false);
+        return;
+      }
 
-      // 🔥 VALIDASI WAJIB
-      if (!res.ok || !data || !data.data) {
+      // ❌ kalau error dari backend
+      if (!res.ok) {
+        alert(data?.message || "Gagal check-in");
+        setLoading(false);
+        return;
+      }
+
+      // ❌ kalau struktur gak sesuai
+      if (!data || !data.data) {
         console.error("Invalid response:", data);
         alert("Data dari server tidak valid");
         setLoading(false);
         return;
       }
 
-      localStorage.setItem("result", JSON.stringify(data.data));
+      // ✅ FIX: ambil dari burnout
+      const result = {
+        score: data.data.burnout.score,
+        risk: data.data.burnout.risk,
+        sleep: data.data.sleep,
+        workload: data.data.workload,
+      };
+
+      localStorage.setItem("result", JSON.stringify(result));
+
       router.push("/result");
 
     } catch (err) {
@@ -71,9 +96,10 @@ export default function Checkin() {
           </p>
 
           <textarea
+            value={journal}
+            onChange={(e) => setJournal(e.target.value)}
             className="w-full p-3 rounded-lg bg-[#0f0f14] border border-gray-700 focus:border-purple-500 outline-none"
             placeholder="Hari ini cukup melelahkan karena..."
-            onChange={(e) => setJournal(e.target.value)}
           />
         </div>
 
@@ -107,11 +133,12 @@ export default function Checkin() {
             {["low", "medium", "high"].map((item) => (
               <button
                 key={item}
+                type="button"
                 onClick={() => setWorkload(item)}
                 className={`px-4 py-2 rounded-xl text-sm capitalize transition ${
                   workload === item
-                    ? "bg-purple-600 scale-105 shadow-lg"
-                    : "bg-[#0f0f14] border border-gray-700 hover:scale-105"
+                    ? "bg-purple-600 scale-105"
+                    : "bg-[#0f0f14] border border-gray-700"
                 }`}
               >
                 {item}
@@ -133,21 +160,18 @@ export default function Checkin() {
               return (
                 <button
                   key={item.label}
+                  type="button"
                   onClick={() => setMood(item.label)}
-                  className={`
-                    flex flex-col items-center justify-center
-                    h-24 rounded-xl border transition-all duration-200
-                    ${
-                      active
-                        ? "border-purple-500 bg-purple-500/10 scale-105 shadow-[0_0_20px_rgba(168,85,247,0.3)]"
-                        : "border-gray-700 hover:scale-105"
-                    }
-                  `}
+                  className={`h-24 rounded-xl border ${
+                    active
+                      ? "border-purple-500 bg-purple-500/10"
+                      : "border-gray-700"
+                  }`}
                 >
-                  <span className="text-2xl">{item.emoji}</span>
-                  <span className="text-xs mt-1 capitalize">
+                  <div className="text-2xl">{item.emoji}</div>
+                  <div className="text-xs capitalize">
                     {item.label}
-                  </span>
+                  </div>
                 </button>
               );
             })}
@@ -157,7 +181,7 @@ export default function Checkin() {
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 py-4 rounded-xl hover:opacity-90 transition"
+          className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 py-4 rounded-xl"
         >
           {loading ? "Analyzing..." : "Analyze My Condition"}
         </button>

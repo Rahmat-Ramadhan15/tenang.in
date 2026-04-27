@@ -3,4 +3,4 @@ const globalForHistory = globalThis as unknown as {
 };
 
 export const history =
-  globalForHistory.history || (globalForHistory.history = []);
+  globalForHistory.history ?? (globalForHistory.history = []);

@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function ResultPage() {
   const [data, setData] = useState<any>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const stored = localStorage.getItem("result");
 
-    // 🔥 GUARD WAJIB
     if (!stored || stored === "undefined") {
       console.warn("No valid data in localStorage");
       return;
@@ -23,6 +23,11 @@ export default function ResultPage() {
       localStorage.removeItem("result");
     }
   }, []);
+
+  const handleBackToCheckin = () => {
+    localStorage.removeItem("result"); 
+    router.push("/checkin");
+  };
 
   if (!data) {
     return (
@@ -105,12 +110,12 @@ export default function ResultPage() {
           </p>
         </div>
 
-        <Link
-          href="/checkin"
-          className="block w-full bg-purple-600 text-center py-3 rounded-xl"
+        <button
+          onClick={handleBackToCheckin}
+          className="w-full bg-purple-600 text-center py-3 rounded-xl hover:opacity-90 transition"
         >
-          🔁 Check-in Lagi
-        </Link>
+          Kembali
+        </button>
       </div>
     </div>
   );

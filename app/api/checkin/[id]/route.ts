@@ -1,49 +1,40 @@
-import { NextResponse } from 'next/server';
-import { history } from '@/lib/store';
-
-export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
+import { NextResponse } from "next/server";
+import { history } from "@/lib/store";
+import { success, error } from "@/lib/utils/apiResponse";
 
 export async function GET(
   req: Request,
   { params }: { params: { id: string } }
 ) {
-  const id = params.id;
-
-  const item = history.find((d) => String(d.id) === String(id));
+  const item = history.find((d) => d.id === params.id);
 
   if (!item) {
-    return NextResponse.json(
-      { status: 'error', message: 'Data tidak ditemukan' },
-      { status: 404 }
-    );
+    return NextResponse.json(error("Data tidak ditemukan"), {
+      status: 404,
+    });
   }
 
-  return NextResponse.json({
-    status: 'success',
-    data: item,
-  });
+  return NextResponse.json(
+    success(item, "Berhasil ambil detail")
+  );
 }
 
 export async function DELETE(
   req: Request,
   { params }: { params: { id: string } }
 ) {
-  const id = params.id;
-
-  const index = history.findIndex((d) => String(d.id) === String(id));
+  const index = history.findIndex((d) => d.id === params.id);
 
   if (index === -1) {
-    return NextResponse.json(
-      { status: 'error', message: 'Data tidak ditemukan' },
-      { status: 404 }
-    );
+    return NextResponse.json(error("Data tidak ditemukan"), {
+      status: 404,
+    });
   }
 
+  const deleted = history[index];
   history.splice(index, 1);
 
-  return NextResponse.json({
-    status: 'success',
-    message: 'Data berhasil dihapus',
-  });
+  return NextResponse.json(
+    success(deleted, "Berhasil dihapus")
+  );
 }
