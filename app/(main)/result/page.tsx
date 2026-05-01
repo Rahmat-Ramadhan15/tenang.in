@@ -53,70 +53,136 @@ export default function ResultPage() {
       ? "#facc15"
       : "#a855f7";
 
-  return (
-    <div className="max-w-md mx-auto">
-      <div className="bg-[#1a1a22] border border-gray-800 p-6 rounded-3xl">
+ return (
+  <div className="p-6 max-w-5xl mx-auto">
 
-        <h1 className="text-xl font-bold text-center mb-6 text-purple-400">
-          Your Result
-        </h1>
+    {/* TITLE */}
+    <h1 className="text-3xl font-bold mb-6">
+      Hasil Analisis
+    </h1>
 
-        <div className="flex flex-col items-center mb-6">
-          <svg height={radius * 2} width={radius * 2}>
-            <circle
-              stroke="#2a2a35"
-              fill="transparent"
-              strokeWidth={stroke}
-              r={normalizedRadius}
-              cx={radius}
-              cy={radius}
+    {/* CARD UTAMA */}
+    <div className="bg-[#1a1a22] border border-gray-800 rounded-2xl p-6 mb-6">
+
+      <p className="text-sm text-gray-400 mb-3">
+        Penilaian Risiko Burnout
+      </p>
+
+      <div className="flex items-center justify-between">
+
+        {/* SCORE */}
+        <div>
+          <p
+            className={`text-5xl font-bold ${
+              data.risk === "high"
+                ? "text-red-500"
+                : data.risk === "medium"
+                ? "text-yellow-400"
+                : "text-purple-400"
+            }`}
+          >
+            {percentage}%
+          </p>
+
+          <p className="text-gray-400 mt-2 text-sm">
+            Tingkat Kepercayaan
+          </p>
+
+          <div className="w-64 h-2 bg-gray-700 rounded-full mt-2">
+            <div
+              className="h-2 bg-purple-500 rounded-full"
+              style={{ width: `${percentage}%` }}
             />
-            <circle
-              stroke={color}
-              fill="transparent"
-              strokeWidth={stroke}
-              strokeDasharray={`${circumference} ${circumference}`}
-              style={{ strokeDashoffset }}
-              strokeLinecap="round"
-              r={normalizedRadius}
-              cx={radius}
-              cy={radius}
-              transform={`rotate(-90 ${radius} ${radius})`}
-            />
-          </svg>
-
-          <div className="-mt-20 text-center">
-            <p className="text-sm text-gray-400">Confidence</p>
-            <h2 className="text-2xl font-bold">
-              {percentage}%
-            </h2>
           </div>
         </div>
 
-        <div className="text-center mb-4">
-          <p className="text-gray-400">Burnout Risk</p>
-          <h2 className="text-xl font-bold capitalize" style={{ color }}>
-            {data.risk}
-          </h2>
+        {/* CIRCLE */}
+        <div className="w-28 h-28 rounded-full border-8 border-purple-500 flex items-center justify-center text-xl font-bold">
+          {percentage}%
         </div>
 
-        <div className="bg-[#0f0f14] border border-gray-800 p-4 rounded-xl mb-4">
-          <p className="font-semibold mb-2">Detail Analysis</p>
-          <p className="text-sm text-gray-400">
-            Sleep: {data.sleep ?? "-"} jam
-          </p>
-          <p className="text-sm text-gray-400">
-            Workload: {data.workload ?? "-"}
-          </p>
-        </div>
-
-        <button
-          onClick={handleBackToCheckin}
-          className="w-full bg-purple-600 text-center py-3 rounded-xl hover:opacity-90 transition"
-        >
-          Kembali
-        </button>
       </div>
     </div>
-  );
+
+    {/* GRID INFO */}
+    <div className="grid grid-cols-3 gap-4 mb-6">
+
+      <div className="bg-[#1a1a22] border border-gray-800 rounded-xl p-4">
+        <p className="text-sm text-gray-400">Sentimen</p>
+        <p className="text-lg font-bold capitalize">
+          {data.mood || "Unknown"}
+        </p>
+      </div>
+
+      <div className="bg-[#1a1a22] border border-gray-800 rounded-xl p-4">
+        <p className="text-sm text-gray-400">Tidur</p>
+        <p className="text-lg font-bold">
+          {data.sleep} jam
+        </p>
+      </div>
+
+      <div className="bg-[#1a1a22] border border-gray-800 rounded-xl p-4">
+        <p className="text-sm text-gray-400">Tren</p>
+        <p className="text-lg font-bold">
+          {data.risk === "high" ? "Meningkat" : "Stabil"}
+        </p>
+      </div>
+
+    </div>
+
+    {/* PENJELASAN */}
+    <div className="bg-[#1a1a22] border border-gray-800 rounded-xl p-5 mb-6">
+      <h3 className="font-semibold mb-2">
+        Penjelasan
+      </h3>
+
+      <p className="text-gray-400 text-sm leading-relaxed">
+        Kombinasi workload {data.workload} dan durasi tidur {data.sleep} jam 
+        menunjukkan kondisi mental Anda saat ini. Jika kondisi ini berlanjut, 
+        risiko burnout dapat meningkat.
+      </p>
+    </div>
+
+    {/* REKOMENDASI */}
+    <div className="bg-[#1a1a22] border border-gray-800 rounded-xl p-5 mb-6">
+      <h3 className="font-semibold mb-3">
+        Rekomendasi
+      </h3>
+
+      <div className="space-y-3 text-sm text-gray-400">
+        <div className="bg-[#0f0f14] p-3 rounded-lg">
+          ✔ Tidur minimal 7 jam malam ini
+        </div>
+
+        <div className="bg-[#0f0f14] p-3 rounded-lg">
+          ✔ Kurangi workload jika memungkinkan
+        </div>
+
+        <div className="bg-[#0f0f14] p-3 rounded-lg">
+          ✔ Luangkan waktu relaksasi 15 menit
+        </div>
+      </div>
+    </div>
+
+    {/* BUTTON */}
+    <div className="flex gap-4">
+
+      <button
+        onClick={handleBackToCheckin}
+        className="w-full bg-gray-700 py-3 rounded-xl hover:opacity-90"
+      >
+        Kembali
+      </button>
+
+      <button
+        onClick={() => alert("Saved")}
+        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 py-3 rounded-xl"
+      >
+        Simpan Hasil
+      </button>
+
+    </div>
+
+  </div>
+);
 }

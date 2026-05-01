@@ -1,9 +1,14 @@
 interface BurnoutCardProps {
   score: number;
   risk: "low" | "medium" | "high";
+  trend?: string;
 }
 
-export default function BurnoutCard({ score, risk }: BurnoutCardProps) {
+export default function BurnoutCard({
+  score,
+  risk,
+  trend,
+}: BurnoutCardProps) {
   const getRiskColor = () => {
     switch (risk) {
       case "high":
@@ -43,14 +48,13 @@ export default function BurnoutCard({ score, risk }: BurnoutCardProps) {
     }
   };
 
-  const circumference = 2 * Math.PI * 70;
-  const offset = circumference - (score / 100) * circumference;
-
   return (
     <div className="bg-[#1a1a22] p-6 rounded-2xl border border-gray-800 flex justify-between items-center">
-      {/* BURNOUT INFO YANG KANAN */}
+      {/* LEFT */}
       <div>
-        <p className="text-gray-400 text-sm mb-2">Burnout Status Today</p>
+        <p className="text-gray-400 text-sm mb-2">
+          Burnout Status Today
+        </p>
 
         <div
           className={`inline-flex items-center px-3 py-1 rounded-lg text-xs font-semibold mb-3 ${getRiskBg()} ${getRiskColor()}`}
@@ -59,14 +63,19 @@ export default function BurnoutCard({ score, risk }: BurnoutCardProps) {
         </div>
 
         <p className="text-white/90 text-sm mb-2">
-        Current Burnout Level
+          Current Burnout Level
         </p>
 
-        <h2 className="text-4xl font-bold mb-2">{score}%</h2>
+        <h2 className="text-4xl font-bold mb-2">
+          {score}%
+        </h2>
 
-        <p className="text-white/70 text-sm">
-        Kondisi menurun 3 hari terakhir
-        </p>
+        {/* ✅ TREND DINAMIS */}
+        {trend && (
+          <p className="text-white/70 text-sm">
+            {trend}
+          </p>
+        )}
       </div>
 
       {/* RIGHT (CIRCLE) */}
@@ -89,14 +98,17 @@ export default function BurnoutCard({ score, risk }: BurnoutCardProps) {
             fill="none"
             strokeDasharray={2 * Math.PI * 56}
             strokeDashoffset={
-              2 * Math.PI * 56 - (score / 100) * (2 * Math.PI * 56)
+              2 * Math.PI * 56 -
+              (score / 100) * (2 * Math.PI * 56)
             }
             strokeLinecap="round"
           />
         </svg>
 
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-xl font-bold">{score}%</span>
+          <span className="text-xl font-bold">
+            {score}%
+          </span>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-export default function StreakCard() {
+export default function StreakCard({ streak }: { streak: number }) {
   return (
     <div className="bg-gradient-to-br from-purple-600 via-indigo-600 to-indigo-700 rounded-2xl p-6 text-white flex flex-col justify-center">
       
@@ -7,7 +7,7 @@ export default function StreakCard() {
 
         <div>
           <div className="text-2xl font-bold mb-1">
-            5 days streak
+            {streak} hari berturut-turut!
           </div>
 
           <div className="text-indigo-200 text-sm">

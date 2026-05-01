@@ -8,14 +8,31 @@ import StreakCard from "@/components/dashboard/StreakCard";
 import InsightCard from "@/components/dashboard/InsightCard";
 import TrendChart from "@/components/dashboard/TrendChart";
 
+import { calculateStreak } from "@/lib/streak";
+
 interface User {
   name: string;
   email: string;
 }
 
+interface HistoryItem {
+  score?: number;
+  risk?: "low" | "medium" | "high";
+  createdAt?: string;
+}
+
 export default function Dashboard() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const [streak, setStreak] = useState(0);
+
+  const [latest, setLatest] = useState({
+    score: 0,
+    risk: "low" as "low" | "medium" | "high",
+  });
+
+  const [trendText, setTrendText] = useState("");
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -31,6 +48,62 @@ export default function Dashboard() {
     };
 
     fetchUser();
+
+    // =========================
+    // AMBIL HISTORY
+    // =========================
+    const history: HistoryItem[] = JSON.parse(
+      localStorage.getItem("history") || "[]"
+    );
+
+    if (history.length > 0) {
+      // 🔥 STREAK
+      const result = calculateStreak(history);
+      setStreak(result);
+
+      // 🔥 SORT BERDASARKAN TANGGAL
+      const sorted = history
+        .filter((item) => item.createdAt)
+        .sort(
+          (a, b) =>
+            new Date(a.createdAt!).getTime() -
+            new Date(b.createdAt!).getTime()
+        );
+
+      const last = sorted[sorted.length - 1];
+
+      setLatest({
+        score: last?.score ?? 0,
+        risk: last?.risk ?? "low",
+      });
+
+      // =========================
+      // TREND 3 HARI TERAKHIR
+      // =========================
+      if (sorted.length >= 3) {
+        const last3 = sorted.slice(-3);
+
+        const first = last3[0].score ?? 0;
+        const lastScore = last3[2].score ?? 0;
+
+        if (lastScore > first) {
+          setTrendText("Kondisi meningkat dalam 3 hari terakhir");
+        } else if (lastScore < first) {
+          setTrendText("Kondisi menurun dalam 3 hari terakhir");
+        } else {
+          setTrendText("Kondisi stabil dalam 3 hari terakhir");
+        }
+      } else {
+        setTrendText("Lanjutkan check-in untuk melihat tren harianmu");
+      }
+    } else {
+      setStreak(0);
+      setLatest({
+        score: 0,
+        risk: "low",
+      });
+      setTrendText("");
+    }
   }, []);
 
   return (
@@ -64,10 +137,14 @@ export default function Dashboard() {
       {/* TOP */}
       <div className="grid grid-cols-3 gap-6 mb-8">
         <div className="col-span-2">
-          <BurnoutCard score={82} risk="high" />
+          <BurnoutCard
+            score={latest.score}
+            risk={latest.risk}
+            trend={trendText}
+          />
         </div>
 
-        <StreakCard />
+        <StreakCard streak={streak} />
       </div>
 
       {/* CHART */}
