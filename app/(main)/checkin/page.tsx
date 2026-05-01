@@ -55,16 +55,35 @@ export default function CheckinPage() {
         return;
       }
 
-      // ✅ FIX: ambil dari burnout
+      // ✅ ambil data dari response
       const result = {
         score: data.data.burnout.score,
         risk: data.data.burnout.risk,
         sleep: data.data.sleep,
         workload: data.data.workload,
+        mood: data.data.mood,
+        createdAt: new Date().toISOString(),
       };
 
+      // =========================
+      // ✅ SIMPAN RESULT
+      // =========================
       localStorage.setItem("result", JSON.stringify(result));
 
+      // =========================
+      // ✅ SIMPAN HISTORY (INI YANG BARU)
+      // =========================
+      const existingHistory = JSON.parse(
+        localStorage.getItem("history") || "[]"
+      );
+
+      existingHistory.push(result);
+
+      localStorage.setItem("history", JSON.stringify(existingHistory));
+
+      // =========================
+      // REDIRECT
+      // =========================
       router.push("/result");
 
     } catch (err) {
