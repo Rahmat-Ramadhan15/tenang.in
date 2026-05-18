@@ -2,18 +2,20 @@ import { NextRequest } from "next/server";
 import { JwtPayload } from "jsonwebtoken";
 
 import { verifyToken } from "./jwt";
+import { prisma } from "./prisma";
 
 type UserPayload = JwtPayload & {
   id: string;
   email: string;
 };
 
-export function getUserFromToken(
+export async function getUserFromToken(
   req: NextRequest
-): UserPayload | null {
+): Promise<UserPayload | null> {
 
   try {
 
+    // GET AUTH HEADER
     const authHeader =
       req.headers.get("authorization");
 
@@ -21,6 +23,7 @@ export function getUserFromToken(
       return null;
     }
 
+    // GET TOKEN
     const token =
       authHeader.split(" ")[1];
 
@@ -28,8 +31,37 @@ export function getUserFromToken(
       return null;
     }
 
+    // VERIFY JWT
     const decoded =
       verifyToken(token) as UserPayload;
+
+    // CHECK SESSION DATABASE
+    const session =
+      await prisma.session.findUnique({
+        where: {
+          token,
+        },
+      });
+
+    // SESSION TIDAK ADA
+    if (!session) {
+      return null;
+    }
+
+    // SESSION EXPIRED
+    if (
+      new Date() >
+      session.expiresAt
+    ) {
+
+      await prisma.session.delete({
+        where: {
+          id: session.id,
+        },
+      });
+
+      return null;
+    }
 
     return decoded;
 

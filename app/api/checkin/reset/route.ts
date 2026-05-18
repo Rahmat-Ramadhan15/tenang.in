@@ -1,14 +1,15 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { success, error, } from "@/lib/utils/apiResponse";
 import { getUserFromToken } from "@/lib/auth";
+import { success, error, } from "@/lib/utils/apiResponse";
 
-export async function DELETE(req: Request) {
+export async function DELETE(
+  req: NextRequest
+) {
   try {
-
     // AUTH
     const user =
-      getUserFromToken(req as any);
+      await getUserFromToken(req);
 
     if (!user) {
       return NextResponse.json(
@@ -17,14 +18,14 @@ export async function DELETE(req: Request) {
       );
     }
 
-    // DELETE PREDICTIONS
+    // DELETE ALL USER PREDICTIONS
     await prisma.prediction.deleteMany({
       where: {
         userId: user.id,
       },
     });
 
-    // DELETE JOURNALS
+    // DELETE ALL USER JOURNALS
     await prisma.journalEntry.deleteMany({
       where: {
         userId: user.id,
@@ -38,7 +39,11 @@ export async function DELETE(req: Request) {
       )
     );
 
-  } catch {
+  } catch (err) {
+    console.error(
+      "DELETE HISTORY ERROR",
+      err
+    );
 
     return NextResponse.json(
       error("Server error"),

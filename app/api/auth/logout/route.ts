@@ -2,17 +2,22 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifyToken } from "@/lib/jwt";
 
-export async function GET(
-  req: NextRequest
+export async function POST(
+  request: NextRequest
 ) {
   try {
-
     const authHeader =
-      req.headers.get(
+      request.headers.get(
         "authorization"
       );
 
-    if (!authHeader) {
+    const token =
+      authHeader?.replace(
+        "Bearer ",
+        ""
+      );
+
+    if (!token) {
       return NextResponse.json(
         {
           status: "error",
@@ -24,25 +29,13 @@ export async function GET(
       );
     }
 
-    const token =
-      authHeader.replace(
-        "Bearer ",
-        ""
-      );
-
-    let decoded;
-
     try {
-      decoded = verifyToken(token) as {
-        id: string;
-        email: string;
-      };
+      verifyToken(token);
     } catch {
       return NextResponse.json(
         {
           status: "error",
-          message:
-            "Token tidak valid",
+          message: "Token tidak valid",
           data: null,
         },
         { status: 401 }
@@ -72,7 +65,6 @@ export async function GET(
       new Date() >
       session.expiresAt
     ) {
-
       await prisma.session.delete({
         where: {
           id: session.id,
@@ -83,52 +75,49 @@ export async function GET(
         {
           status: "error",
           message:
-            "Session expired",
+            "Session sudah expired",
           data: null,
         },
         { status: 401 }
       );
     }
 
-    const user =
-      await prisma.user.findUnique({
-        where: {
-          id: decoded.id,
-        },
-        select: {
-          id: true,
-          nama: true,
-          email: true,
-          createdAt: true,
-        },
-      });
+    await prisma.session.delete({
+      where: {
+        id: session.id,
+      },
+    });
 
-    if (!user) {
-      return NextResponse.json(
+    const response =
+      NextResponse.json(
         {
-          status: "error",
+          status: "success",
           message:
-            "User tidak ditemukan",
+            "Logout berhasil",
           data: null,
         },
-        { status: 404 }
+        { status: 200 }
       );
-    }
 
-    return NextResponse.json(
+    response.cookies.set(
+      "authToken",
+      "",
       {
-        status: "success",
-        message:
-          "Berhasil mengambil profile",
-        data: user,
-      },
-      { status: 200 }
+        maxAge: 0,
+        httpOnly: true,
+        secure:
+          process.env.NODE_ENV ===
+          "production",
+        sameSite: "strict",
+        path: "/",
+      }
     );
 
-  } catch (error) {
+    return response;
 
+  } catch (error) {
     console.error(
-      "GET PROFILE ERROR:",
+      "LOGOUT ERROR:",
       error
     );
 

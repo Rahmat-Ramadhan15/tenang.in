@@ -3,18 +3,36 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET(
   req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  {
+    params,
+  }: {
+    params: Promise<{
+      id: string;
+    }>;
+  }
 ) {
   try {
 
-    // WAJIB AWAIT PARAMS
-    const { id } = await params;
+    // WAJIB AWAIT
+    const { id } =
+      await params;
+
+    if (!id) {
+      return NextResponse.json(
+        {
+          status: "error",
+          message: "ID wajib diisi",
+        },
+        { status: 400 }
+      );
+    }
 
     const user =
       await prisma.user.findUnique({
         where: {
-          id: id,
+          id,
         },
+
         select: {
           id: true,
           nama: true,
@@ -26,7 +44,8 @@ export async function GET(
       return NextResponse.json(
         {
           status: "error",
-          message: "User tidak ditemukan",
+          message:
+            "User tidak ditemukan",
         },
         { status: 404 }
       );
@@ -42,7 +61,10 @@ export async function GET(
 
   } catch (err) {
 
-    console.error("ERROR:", err);
+    console.error(
+      "GET USER ERROR",
+      err
+    );
 
     return NextResponse.json(
       {

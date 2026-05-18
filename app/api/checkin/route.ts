@@ -1,21 +1,19 @@
-import { NextResponse } from "next/server";
-import { calculateBurnout, generateInsight, } from "@/lib/services/checkinService";
-import { checkinSchema } from "@/lib/validations/checkinSchema";
-import { logger } from "@/lib/logger";
-import { rateLimit } from "@/lib/rateLimiter";
-import { success, error, } from "@/lib/utils/apiResponse";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getUserFromToken } from "@/lib/auth";
+import { checkinSchema } from "@/lib/validations/checkinSchema";
+import { calculateBurnout, generateInsight, } from "@/lib/services/checkinService";
+import { success, error, } from "@/lib/utils/apiResponse";
+import { logger } from "@/lib/logger";
+import { rateLimit } from "@/lib/rateLimiter";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET(req: Request) {
+export async function GET(req: NextRequest) {
   try {
-
     // AUTH
-    const user =
-      getUserFromToken(req as any);
+    const user = await getUserFromToken(req);
 
     if (!user) {
       return NextResponse.json(
@@ -24,7 +22,7 @@ export async function GET(req: Request) {
       );
     }
 
-    // GET USER JOURNALS
+    // GET JOURNALS
     const journals =
       await prisma.journalEntry.findMany({
         where: {
@@ -48,12 +46,11 @@ export async function GET(req: Request) {
     );
 
   } catch (err) {
-
-    logger.error("Get journals error", {
+    logger.error("GET JOURNALS ERROR", {
       error:
         err instanceof Error
           ? err.message
-          : err,
+          : String(err),
     });
 
     return NextResponse.json(
@@ -63,13 +60,14 @@ export async function GET(req: Request) {
   }
 }
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
-
+    // GET IP
     const ip =
       req.headers
         .get("x-forwarded-for")
-        ?.split(",")[0] || "local";
+        ?.split(",")[0]
+        ?.trim() || "local";
 
     // RATE LIMIT
     if (!rateLimit(ip)) {
@@ -80,8 +78,7 @@ export async function POST(req: Request) {
     }
 
     // AUTH
-    const user =
-      getUserFromToken(req as any);
+    const user = await getUserFromToken(req);
 
     if (!user) {
       return NextResponse.json(
@@ -117,6 +114,7 @@ export async function POST(req: Request) {
       );
     }
 
+    // EXTRACT DATA
     const {
       journal: journalText,
       sleep,
@@ -124,24 +122,14 @@ export async function POST(req: Request) {
       mood,
     } = parsed.data;
 
+    // TODAY RANGE
     const todayStart = new Date();
-
-    todayStart.setHours(
-      0,
-      0,
-      0,
-      0
-    );
+    todayStart.setHours(0, 0, 0, 0);
 
     const todayEnd = new Date();
+    todayEnd.setHours(23, 59, 59, 999);
 
-    todayEnd.setHours(
-      23,
-      59,
-      59,
-      999
-    );
-
+    // CHECK TODAY CHECK-IN
     const already =
       await prisma.journalEntry.findFirst({
         where: {
@@ -156,13 +144,12 @@ export async function POST(req: Request) {
 
     if (already) {
       return NextResponse.json(
-        error(
-          "Kamu sudah check-in hari ini"
-        ),
+        error("Kamu sudah check-in hari ini"),
         { status: 400 }
       );
     }
 
+    // MOCK AI
     const { risk, score } =
       calculateBurnout(
         sleep,
@@ -172,76 +159,77 @@ export async function POST(req: Request) {
     const insight =
       generateInsight(risk);
 
-    const createdJournal =
-      await prisma.journalEntry.create({
-        data: {
-          userId: user.id,
+    // TRANSACTION
+    const result =
+      await prisma.$transaction(
+        async (tx) => {
 
-          tanggal: new Date(),
+          // CREATE JOURNAL
+          const createdJournal =
+            await tx.journalEntry.create({
+              data: {
+                userId: user.id,
+                tanggal: new Date(),
+                teksJurnal: journalText,
+                jamTidur: sleep,
+                bebanKerja: String(workload),
+                mood: String(mood),
+              },
+            });
 
-          teksJurnal: journalText,
+          // CREATE PREDICTION
+          const createdPrediction =
+            await tx.prediction.create({
+              data: {
+                userId: user.id,
+                journalId:
+                  createdJournal.id,
 
-          jamTidur: sleep,
+                probAnger: 0.2,
+                probFear: 0.3,
+                probSadness: 0.5,
+                probJoy: 0.1,
+                probDisgust: 0.1,
+                probTrust: 0.4,
+                probAnticipation: 0.2,
 
-          bebanKerja: String(workload),
+                skorBurnout:
+                  score / 100,
 
-          mood: String(mood),
-        },
-      });
+                labelRisk: risk,
+              },
+            });
 
-    const createdPrediction =
-      await prisma.prediction.create({
-        data: {
-          userId: user.id,
+          return {
+            journal: createdJournal,
 
-          journalId:
-            createdJournal.id,
+            prediction: {
+              ...createdPrediction,
+              insight,
+            },
+          };
+        }
+      );
 
-          // MOCK PROBABILITIES
-          probAnger: 0.2,
-          probFear: 0.3,
-          probSadness: 0.5,
-          probJoy: 0.1,
-          probDisgust: 0.1,
-          probTrust: 0.4,
-          probAnticipation: 0.2,
-
-          skorBurnout:
-            score / 100,
-
-          labelRisk: risk,
-        },
-      });
-
-    const responseData = {
-      journal: createdJournal,
-
-      prediction: {
-        ...createdPrediction,
-        insight,
-      },
-    };
-
-    logger.info("Checkin created", {
-      id: createdJournal.id,
+    logger.info("CHECKIN CREATED", {
+      userId: user.id,
       ip,
     });
 
     return NextResponse.json(
       success(
-        responseData,
+        result,
         "Check-in berhasil"
       ),
       { status: 201 }
     );
 
   } catch (err) {
-
-    logger.error("Checkin error", {
+    logger.error("CHECKIN ERROR", {
       error:
         err instanceof Error
           ? err.message
-          : err,
+          : String(err),
     });
 
     return NextResponse.json(

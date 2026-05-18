@@ -1,27 +1,27 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse, } from "next/server";
 import { prisma } from "@/lib/prisma";
-import {
-  calculateBurnout,
-  generateInsight,
-} from "@/lib/services/checkinService";
+import { calculateBurnout, generateInsight, } from "@/lib/services/checkinService";
 import { checkinSchema } from "@/lib/validations/checkinSchema";
-import {
-  success,
-  error,
-} from "@/lib/utils/apiResponse";
+import { success, error, } from "@/lib/utils/apiResponse";
 import { getUserFromToken } from "@/lib/auth";
 
 export async function GET(
-  req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  req: NextRequest,
+  {
+    params,
+  }: {
+    params: Promise<{
+      id: string;
+    }>;
+  }
 ) {
   try {
-
-    const { id } = await params;
+    const { id } =
+      await params;
 
     // AUTH
     const user =
-      getUserFromToken(req as any);
+      await getUserFromToken(req);
 
     if (!user) {
       return NextResponse.json(
@@ -30,11 +30,11 @@ export async function GET(
       );
     }
 
-    // GET DATA
+    // GET DETAIL
     const item =
       await prisma.journalEntry.findFirst({
         where: {
-          id: id,
+          id,
           userId: user.id,
         },
 
@@ -57,7 +57,11 @@ export async function GET(
       )
     );
 
-  } catch {
+  } catch (err) {
+    console.error(
+      "GET DETAIL ERROR",
+      err
+    );
 
     return NextResponse.json(
       error("Server error"),
@@ -67,16 +71,22 @@ export async function GET(
 }
 
 export async function PUT(
-  req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  req: NextRequest,
+  {
+    params,
+  }: {
+    params: Promise<{
+      id: string;
+    }>;
+  }
 ) {
   try {
-
-    const { id } = await params;
+    const { id } =
+      await params;
 
     // AUTH
     const user =
-      getUserFromToken(req as any);
+      await getUserFromToken(req);
 
     if (!user) {
       return NextResponse.json(
@@ -89,11 +99,10 @@ export async function PUT(
     let body;
 
     try {
-
-      body = await req.json();
+      body =
+        await req.json();
 
     } catch {
-
       return NextResponse.json(
         error("Invalid JSON"),
         { status: 400 }
@@ -105,16 +114,17 @@ export async function PUT(
       checkinSchema.safeParse(body);
 
     if (!parsed.success) {
-
       return NextResponse.json(
         error(
-          parsed.error.issues[0]?.message ||
-          "Invalid input"
+          parsed.error
+            .issues[0]?.message ||
+            "Invalid input"
         ),
         { status: 400 }
       );
     }
 
+    // EXTRACT DATA
     const {
       journal: journalText,
       sleep,
@@ -122,11 +132,11 @@ export async function PUT(
       mood,
     } = parsed.data;
 
-    // CHECK DATA
+    // CHECK EXISTING
     const existing =
       await prisma.journalEntry.findFirst({
         where: {
-          id: id,
+          id,
           userId: user.id,
         },
 
@@ -136,14 +146,13 @@ export async function PUT(
       });
 
     if (!existing) {
-
       return NextResponse.json(
         error("Data tidak ditemukan"),
         { status: 404 }
       );
     }
 
-    // REGENERATE AI MOCK
+    // MOCK AI
     const { risk, score } =
       calculateBurnout(
         sleep,
@@ -153,91 +162,113 @@ export async function PUT(
     const insight =
       generateInsight(risk);
 
-    // UPDATE JOURNAL
-    const updatedJournal =
-      await prisma.journalEntry.update({
-        where: {
-          id: id,
-        },
+    // TRANSACTION
+    const result =
+      await prisma.$transaction(
+        async (tx) => {
 
-        data: {
-          teksJurnal: journalText,
-          jamTidur: sleep,
-          bebanKerja: String(workload),
-          mood: String(mood),
-        },
-      });
+          // UPDATE JOURNAL
+          const updatedJournal =
+            await tx.journalEntry.update({
+              where: {
+                id,
+              },
 
-    // UPDATE PREDICTION
-    let updatedPrediction;
+              data: {
+                teksJurnal:
+                  journalText,
 
-    if (existing.prediction) {
+                jamTidur:
+                  sleep,
 
-      updatedPrediction =
-        await prisma.prediction.update({
-          where: {
-            journalId: id,
-          },
+                bebanKerja:
+                  String(workload),
 
-          data: {
-            skorBurnout:
-              score / 100,
+                mood:
+                  String(mood),
+              },
+            });
 
-            labelRisk: risk,
+          // UPDATE / CREATE PREDICTION
+          let updatedPrediction;
 
-            probAnger: 0.2,
-            probFear: 0.3,
-            probSadness: 0.5,
-            probJoy: 0.1,
-            probDisgust: 0.1,
-            probTrust: 0.4,
-            probAnticipation: 0.2,
-          },
-        });
+          if (existing.prediction) {
 
-    } else {
+            updatedPrediction =
+              await tx.prediction.update({
+                where: {
+                  journalId: id,
+                },
 
-      updatedPrediction =
-        await prisma.prediction.create({
-          data: {
-            userId: user.id,
+                data: {
+                  skorBurnout:
+                    score / 100,
 
-            journalId: id,
+                  labelRisk:
+                    risk,
 
-            probAnger: 0.2,
-            probFear: 0.3,
-            probSadness: 0.5,
-            probJoy: 0.1,
-            probDisgust: 0.1,
-            probTrust: 0.4,
-            probAnticipation: 0.2,
+                  probAnger: 0.2,
+                  probFear: 0.3,
+                  probSadness: 0.5,
+                  probJoy: 0.1,
+                  probDisgust: 0.1,
+                  probTrust: 0.4,
+                  probAnticipation: 0.2,
+                },
+              });
 
-            skorBurnout:
-              score / 100,
+          } else {
 
-            labelRisk: risk,
-          },
-        });
-    }
+            updatedPrediction =
+              await tx.prediction.create({
+                data: {
+                  userId:
+                    user.id,
+
+                  journalId:
+                    id,
+
+                  probAnger: 0.2,
+                  probFear: 0.3,
+                  probSadness: 0.5,
+                  probJoy: 0.1,
+                  probDisgust: 0.1,
+                  probTrust: 0.4,
+                  probAnticipation: 0.2,
+
+                  skorBurnout:
+                    score / 100,
+
+                  labelRisk:
+                    risk,
+                },
+              });
+          }
+
+          return {
+            journal:
+              updatedJournal,
+
+            prediction: {
+              ...updatedPrediction,
+              insight,
+            },
+          };
+        }
+      );
 
     return NextResponse.json(
       success(
-        {
-          journal: updatedJournal,
-
-          prediction: {
-            ...updatedPrediction,
-            insight,
-          },
-        },
-
+        result,
         "Berhasil update check-in"
       )
     );
 
   } catch (err) {
-
-    console.error(err);
+    console.error(
+      "UPDATE ERROR",
+      err
+    );
 
     return NextResponse.json(
       error("Server error"),
@@ -247,16 +278,22 @@ export async function PUT(
 }
 
 export async function DELETE(
-  req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  req: NextRequest,
+  {
+    params,
+  }: {
+    params: Promise<{
+      id: string;
+    }>;
+  }
 ) {
   try {
-
-    const { id } = await params;
+    const { id } =
+      await params;
 
     // AUTH
     const user =
-      getUserFromToken(req as any);
+      await getUserFromToken(req);
 
     if (!user) {
       return NextResponse.json(
@@ -269,22 +306,22 @@ export async function DELETE(
     const item =
       await prisma.journalEntry.findFirst({
         where: {
-          id: id,
+          id,
           userId: user.id,
         },
       });
 
     if (!item) {
-
       return NextResponse.json(
         error("Data tidak ditemukan"),
         { status: 404 }
       );
     }
 
+    // DELETE
     await prisma.journalEntry.delete({
       where: {
-        id: id,
+        id,
       },
     });
 
@@ -295,7 +332,11 @@ export async function DELETE(
       )
     );
 
-  } catch {
+  } catch (err) {
+    console.error(
+      "DELETE ERROR",
+      err
+    );
 
     return NextResponse.json(
       error("Server error"),

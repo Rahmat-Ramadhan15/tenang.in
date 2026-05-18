@@ -1,19 +1,23 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { prisma } from "@/lib/prisma";
 import { signToken } from "@/lib/jwt";
 
-export async function POST(req: Request) {
+export async function POST(
+  req: NextRequest
+) {
   try {
 
-    const body = await req.json();
+    // PARSE BODY
+    const body =
+      await req.json();
 
-    const {
+    let {
       email,
       password,
     } = body;
 
-    // VALIDASI
+    // VALIDATION
     if (
       !email ||
       !password
@@ -21,40 +25,57 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           status: "error",
-          message: "Email dan password wajib",
+          message:
+            "Email dan password wajib diisi",
+          data: null,
         },
         { status: 400 }
       );
     }
 
-    // CEK USER
+    // SANITIZE
+    email =
+      email
+        .trim()
+        .toLowerCase();
+
+    password =
+      password.trim();
+
+    // FIND USER
     const user =
       await prisma.user.findUnique({
-        where: { email },
+        where: {
+          email,
+        },
       });
 
     if (!user) {
       return NextResponse.json(
         {
           status: "error",
-          message: "User tidak ditemukan",
+          message:
+            "Email atau password salah",
+          data: null,
         },
-        { status: 404 }
+        { status: 401 }
       );
     }
 
-    // PASSWORD NULL
+    // CHECK PASSWORD NULL
     if (!user.password) {
       return NextResponse.json(
         {
           status: "error",
-          message: "Password user tidak valid",
+          message:
+            "Password tidak valid",
+          data: null,
         },
         { status: 400 }
       );
     }
 
-    // CEK PASSWORD
+    // CHECK PASSWORD
     const isMatch =
       await bcrypt.compare(
         password,
@@ -65,42 +86,105 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           status: "error",
-          message: "Password salah",
+          message:
+            "Email atau password salah",
+          data: null,
         },
         { status: 401 }
       );
     }
 
-    // JWT
-    const token = signToken({
-      id: user.id,
-      email: user.email,
+    // DELETE OLD SESSION
+    await prisma.session.deleteMany({
+      where: {
+        userId: user.id,
+      },
     });
 
-    return NextResponse.json(
-      {
-        status: "success",
-        message: "Login berhasil",
-        data: {
-          token,
-          user: {
-            id: user.id,
-            nama: user.nama,
-            email: user.email,
-          },
-        },
-      },
-      { status: 200 }
+    // GENERATE TOKEN
+    const token =
+      signToken({
+        id: user.id,
+        email: user.email,
+      });
+
+    // EXPIRED 7 DAYS
+    const expiresAt =
+      new Date();
+
+    expiresAt.setDate(
+      expiresAt.getDate() + 7
     );
 
-  } catch (err) {
+    // SAVE SESSION
+    await prisma.session.create({
+      data: {
+        userId: user.id,
+        token,
+        expiresAt,
+      },
+    });
 
-    console.error(err);
+    // RESPONSE
+    const response =
+      NextResponse.json(
+        {
+          status: "success",
+          message:
+            "Login berhasil",
+          data: {
+            token,
+
+            user: {
+              id: user.id,
+              nama: user.nama,
+              email:
+                user.email,
+            },
+          },
+        },
+        { status: 200 }
+      );
+
+    // SET COOKIE
+    response.cookies.set(
+      "authToken",
+      token,
+      {
+        httpOnly: true,
+
+        secure:
+          process.env.NODE_ENV ===
+          "production",
+
+        sameSite:
+          "strict",
+
+        maxAge:
+          60 *
+          60 *
+          24 *
+          7,
+
+        path: "/",
+      }
+    );
+
+    return response;
+
+  } catch (error) {
+
+    console.error(
+      "LOGIN ERROR:",
+      error
+    );
 
     return NextResponse.json(
       {
         status: "error",
-        message: "Server error",
+        message:
+          "Server error",
+        data: null,
       },
       { status: 500 }
     );

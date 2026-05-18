@@ -7,15 +7,32 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Session {
+  id        String   @id @default(uuid())
+  userId    String
+  token     String   @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+  @@index([userId])
+}
+
 model User {
   id            String           @id @default(uuid())
   email         String           @unique
-  password      String?
+  password      String
   nama          String
   createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
 
   journals      JournalEntry[]
   predictions   Prediction[]
+  sessions      Session[]
+
+  @@index([email])
 }
 
 model JournalEntry {
@@ -30,9 +47,12 @@ model JournalEntry {
 
   createdAt     DateTime      @default(now())
 
-  user          User          @relation(fields: [userId], references: [id])
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   prediction    Prediction?
+
+  @@index([userId])
+  @@index([tanggal])
 }
 
 model Prediction {
@@ -54,7 +74,10 @@ model Prediction {
 
   createdAt           DateTime       @default(now())
 
-  user                User           @relation(fields: [userId], references: [id])
+  user                User           @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   journal             JournalEntry   @relation(fields: [journalId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([journalId])
 }
