@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String           @id @default(uuid())
+  email         String           @unique
+  password      String?
+  nama          String
+  createdAt     DateTime         @default(now())
+
+  journals      JournalEntry[]
+  predictions   Prediction[]
+}
+
+model JournalEntry {
+  id            String        @id @default(uuid())
+
+  userId        String
+  tanggal       DateTime
+  teksJurnal    String
+  jamTidur      Float
+  bebanKerja    String
+  mood          String
+
+  createdAt     DateTime      @default(now())
+
+  user          User          @relation(fields: [userId], references: [id])
+
+  prediction    Prediction?
+}
+
+model Prediction {
+  id                  String         @id @default(uuid())
+
+  userId              String
+  journalId           String         @unique
+
+  probAnger           Float
+  probFear            Float
+  probSadness         Float
+  probJoy             Float
+  probDisgust         Float
+  probTrust           Float
+  probAnticipation    Float
+
+  skorBurnout         Float
+  labelRisk           String
+
+  createdAt           DateTime       @default(now())
+
+  user                User           @relation(fields: [userId], references: [id])
+
+  journal             JournalEntry   @relation(fields: [journalId], references: [id], onDelete: Cascade)
+}

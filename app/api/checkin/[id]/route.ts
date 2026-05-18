@@ -1,40 +1,305 @@
 import { NextResponse } from "next/server";
-import { history } from "@/lib/store";
-import { success, error } from "@/lib/utils/apiResponse";
+import { prisma } from "@/lib/prisma";
+import {
+  calculateBurnout,
+  generateInsight,
+} from "@/lib/services/checkinService";
+import { checkinSchema } from "@/lib/validations/checkinSchema";
+import {
+  success,
+  error,
+} from "@/lib/utils/apiResponse";
+import { getUserFromToken } from "@/lib/auth";
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const item = history.find((d) => d.id === params.id);
+  try {
 
-  if (!item) {
-    return NextResponse.json(error("Data tidak ditemukan"), {
-      status: 404,
-    });
+    const { id } = await params;
+
+    // AUTH
+    const user =
+      getUserFromToken(req as any);
+
+    if (!user) {
+      return NextResponse.json(
+        error("Unauthorized"),
+        { status: 401 }
+      );
+    }
+
+    // GET DATA
+    const item =
+      await prisma.journalEntry.findFirst({
+        where: {
+          id: id,
+          userId: user.id,
+        },
+
+        include: {
+          prediction: true,
+        },
+      });
+
+    if (!item) {
+      return NextResponse.json(
+        error("Data tidak ditemukan"),
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(
+      success(
+        item,
+        "Berhasil ambil detail"
+      )
+    );
+
+  } catch {
+
+    return NextResponse.json(
+      error("Server error"),
+      { status: 500 }
+    );
   }
+}
 
-  return NextResponse.json(
-    success(item, "Berhasil ambil detail")
-  );
+export async function PUT(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+
+    const { id } = await params;
+
+    // AUTH
+    const user =
+      getUserFromToken(req as any);
+
+    if (!user) {
+      return NextResponse.json(
+        error("Unauthorized"),
+        { status: 401 }
+      );
+    }
+
+    // PARSE BODY
+    let body;
+
+    try {
+
+      body = await req.json();
+
+    } catch {
+
+      return NextResponse.json(
+        error("Invalid JSON"),
+        { status: 400 }
+      );
+    }
+
+    // VALIDATION
+    const parsed =
+      checkinSchema.safeParse(body);
+
+    if (!parsed.success) {
+
+      return NextResponse.json(
+        error(
+          parsed.error.issues[0]?.message ||
+          "Invalid input"
+        ),
+        { status: 400 }
+      );
+    }
+
+    const {
+      journal: journalText,
+      sleep,
+      workload,
+      mood,
+    } = parsed.data;
+
+    // CHECK DATA
+    const existing =
+      await prisma.journalEntry.findFirst({
+        where: {
+          id: id,
+          userId: user.id,
+        },
+
+        include: {
+          prediction: true,
+        },
+      });
+
+    if (!existing) {
+
+      return NextResponse.json(
+        error("Data tidak ditemukan"),
+        { status: 404 }
+      );
+    }
+
+    // REGENERATE AI MOCK
+    const { risk, score } =
+      calculateBurnout(
+        sleep,
+        workload
+      );
+
+    const insight =
+      generateInsight(risk);
+
+    // UPDATE JOURNAL
+    const updatedJournal =
+      await prisma.journalEntry.update({
+        where: {
+          id: id,
+        },
+
+        data: {
+          teksJurnal: journalText,
+          jamTidur: sleep,
+          bebanKerja: String(workload),
+          mood: String(mood),
+        },
+      });
+
+    // UPDATE PREDICTION
+    let updatedPrediction;
+
+    if (existing.prediction) {
+
+      updatedPrediction =
+        await prisma.prediction.update({
+          where: {
+            journalId: id,
+          },
+
+          data: {
+            skorBurnout:
+              score / 100,
+
+            labelRisk: risk,
+
+            probAnger: 0.2,
+            probFear: 0.3,
+            probSadness: 0.5,
+            probJoy: 0.1,
+            probDisgust: 0.1,
+            probTrust: 0.4,
+            probAnticipation: 0.2,
+          },
+        });
+
+    } else {
+
+      updatedPrediction =
+        await prisma.prediction.create({
+          data: {
+            userId: user.id,
+
+            journalId: id,
+
+            probAnger: 0.2,
+            probFear: 0.3,
+            probSadness: 0.5,
+            probJoy: 0.1,
+            probDisgust: 0.1,
+            probTrust: 0.4,
+            probAnticipation: 0.2,
+
+            skorBurnout:
+              score / 100,
+
+            labelRisk: risk,
+          },
+        });
+    }
+
+    return NextResponse.json(
+      success(
+        {
+          journal: updatedJournal,
+
+          prediction: {
+            ...updatedPrediction,
+            insight,
+          },
+        },
+
+        "Berhasil update check-in"
+      )
+    );
+
+  } catch (err) {
+
+    console.error(err);
+
+    return NextResponse.json(
+      error("Server error"),
+      { status: 500 }
+    );
+  }
 }
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const index = history.findIndex((d) => d.id === params.id);
+  try {
 
-  if (index === -1) {
-    return NextResponse.json(error("Data tidak ditemukan"), {
-      status: 404,
+    const { id } = await params;
+
+    // AUTH
+    const user =
+      getUserFromToken(req as any);
+
+    if (!user) {
+      return NextResponse.json(
+        error("Unauthorized"),
+        { status: 401 }
+      );
+    }
+
+    // CHECK DATA
+    const item =
+      await prisma.journalEntry.findFirst({
+        where: {
+          id: id,
+          userId: user.id,
+        },
+      });
+
+    if (!item) {
+
+      return NextResponse.json(
+        error("Data tidak ditemukan"),
+        { status: 404 }
+      );
+    }
+
+    await prisma.journalEntry.delete({
+      where: {
+        id: id,
+      },
     });
+
+    return NextResponse.json(
+      success(
+        item,
+        "Berhasil dihapus"
+      )
+    );
+
+  } catch {
+
+    return NextResponse.json(
+      error("Server error"),
+      { status: 500 }
+    );
   }
-
-  const deleted = history[index];
-  history.splice(index, 1);
-
-  return NextResponse.json(
-    success(deleted, "Berhasil dihapus")
-  );
 }
