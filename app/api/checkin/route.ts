@@ -162,7 +162,7 @@ export async function POST(req: NextRequest) {
     // TRANSACTION
     const result =
       await prisma.$transaction(
-        async (tx) => {
+        async (tx: any) => {
 
           // CREATE JOURNAL
           const createdJournal =

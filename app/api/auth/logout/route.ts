@@ -6,16 +6,12 @@ export async function POST(
   request: NextRequest
 ) {
   try {
-    const authHeader =
-      request.headers.get(
-        "authorization"
-      );
 
+    // AMBIL TOKEN DARI COOKIE
     const token =
-      authHeader?.replace(
-        "Bearer ",
-        ""
-      );
+      request.cookies.get(
+        "authToken"
+      )?.value;
 
     if (!token) {
       return NextResponse.json(
@@ -29,19 +25,22 @@ export async function POST(
       );
     }
 
+    // VALIDASI TOKEN
     try {
       verifyToken(token);
     } catch {
       return NextResponse.json(
         {
           status: "error",
-          message: "Token tidak valid",
+          message:
+            "Token tidak valid",
           data: null,
         },
         { status: 401 }
       );
     }
 
+    // CEK SESSION
     const session =
       await prisma.session.findUnique({
         where: {
@@ -61,33 +60,14 @@ export async function POST(
       );
     }
 
-    if (
-      new Date() >
-      session.expiresAt
-    ) {
-      await prisma.session.delete({
-        where: {
-          id: session.id,
-        },
-      });
-
-      return NextResponse.json(
-        {
-          status: "error",
-          message:
-            "Session sudah expired",
-          data: null,
-        },
-        { status: 401 }
-      );
-    }
-
+    // HAPUS SESSION
     await prisma.session.delete({
       where: {
         id: session.id,
       },
     });
 
+    // RESPONSE
     const response =
       NextResponse.json(
         {
@@ -99,6 +79,7 @@ export async function POST(
         { status: 200 }
       );
 
+    // HAPUS COOKIE
     response.cookies.set(
       "authToken",
       "",
@@ -116,6 +97,7 @@ export async function POST(
     return response;
 
   } catch (error) {
+
     console.error(
       "LOGOUT ERROR:",
       error
@@ -124,7 +106,8 @@ export async function POST(
     return NextResponse.json(
       {
         status: "error",
-        message: "Server error",
+        message:
+          "Server error",
         data: null,
       },
       { status: 500 }

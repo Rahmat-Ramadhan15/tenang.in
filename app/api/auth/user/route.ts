@@ -7,12 +7,12 @@ export async function GET(
 ) {
   try {
 
-    const authHeader =
-      req.headers.get(
-        "authorization"
-      );
+    // AMBIL TOKEN DARI COOKIE
+    const token =
+      req.cookies.get("authToken")
+        ?.value;
 
-    if (!authHeader) {
+    if (!token) {
       return NextResponse.json(
         {
           status: "error",
@@ -23,12 +23,6 @@ export async function GET(
         { status: 401 }
       );
     }
-
-    const token =
-      authHeader.replace(
-        "Bearer ",
-        ""
-      );
 
     let decoded;
 
@@ -49,6 +43,7 @@ export async function GET(
       );
     }
 
+    // CEK SESSION
     const session =
       await prisma.session.findUnique({
         where: {
@@ -68,6 +63,7 @@ export async function GET(
       );
     }
 
+    // CEK EXPIRED
     if (
       new Date() >
       session.expiresAt
@@ -90,6 +86,7 @@ export async function GET(
       );
     }
 
+    // AMBIL USER
     const user =
       await prisma.user.findUnique({
         where: {

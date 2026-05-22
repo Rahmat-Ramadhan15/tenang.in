@@ -15,17 +15,11 @@ export async function getUserFromToken(
 
   try {
 
-    // GET AUTH HEADER
-    const authHeader =
-      req.headers.get("authorization");
-
-    if (!authHeader) {
-      return null;
-    }
-
-    // GET TOKEN
+    // GET TOKEN FROM COOKIE
     const token =
-      authHeader.split(" ")[1];
+      req.cookies.get(
+        "authToken"
+      )?.value;
 
     if (!token) {
       return null;
@@ -43,7 +37,7 @@ export async function getUserFromToken(
         },
       });
 
-    // SESSION TIDAK ADA
+    // SESSION NOT FOUND
     if (!session) {
       return null;
     }

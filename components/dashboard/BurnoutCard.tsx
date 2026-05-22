@@ -1,22 +1,27 @@
 interface BurnoutCardProps {
   score: number;
-  risk: "low" | "medium" | "high";
+  risk?: "low" | "medium" | "high";
   trend?: string;
 }
 
 export default function BurnoutCard({
   score,
-  risk,
+  risk = "low",
   trend,
 }: BurnoutCardProps) {
+
   const getRiskColor = () => {
     switch (risk) {
+
       case "high":
         return "text-red-400";
+
       case "medium":
         return "text-yellow-400";
+
       case "low":
         return "text-green-400";
+
       default:
         return "text-gray-400";
     }
@@ -24,12 +29,16 @@ export default function BurnoutCard({
 
   const getRiskBg = () => {
     switch (risk) {
+
       case "high":
         return "bg-red-500/10";
+
       case "medium":
         return "bg-yellow-500/10";
+
       case "low":
         return "bg-green-500/10";
+
       default:
         return "bg-gray-500/10";
     }
@@ -37,21 +46,28 @@ export default function BurnoutCard({
 
   const getProgressColor = () => {
     switch (risk) {
+
       case "high":
         return "#ef4444";
+
       case "medium":
         return "#f59e0b";
+
       case "low":
         return "#10b981";
+
       default:
         return "#6b7280";
     }
   };
 
   return (
+
     <div className="bg-[#1a1a22] p-6 rounded-2xl border border-gray-800 flex justify-between items-center">
+
       {/* LEFT */}
       <div>
+
         <p className="text-gray-400 text-sm mb-2">
           Burnout Status Today
         </p>
@@ -70,17 +86,19 @@ export default function BurnoutCard({
           {score}%
         </h2>
 
-        {/* ✅ TREND DINAMIS */}
         {trend && (
           <p className="text-white/70 text-sm">
             {trend}
           </p>
         )}
+
       </div>
 
-      {/* RIGHT (CIRCLE) */}
+      {/* RIGHT */}
       <div className="relative w-32 h-32">
+
         <svg className="transform -rotate-90 w-32 h-32">
+
           <circle
             cx="64"
             cy="64"
@@ -89,6 +107,7 @@ export default function BurnoutCard({
             strokeWidth="10"
             fill="none"
           />
+
           <circle
             cx="64"
             cy="64"
@@ -99,18 +118,24 @@ export default function BurnoutCard({
             strokeDasharray={2 * Math.PI * 56}
             strokeDashoffset={
               2 * Math.PI * 56 -
-              (score / 100) * (2 * Math.PI * 56)
+              (score / 100) *
+              (2 * Math.PI * 56)
             }
             strokeLinecap="round"
           />
+
         </svg>
 
         <div className="absolute inset-0 flex items-center justify-center">
+
           <span className="text-xl font-bold">
             {score}%
           </span>
+
         </div>
+
       </div>
+
     </div>
   );
 }
