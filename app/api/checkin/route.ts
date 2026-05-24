@@ -2,8 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getUserFromToken } from "@/lib/auth";
 import { checkinSchema } from "@/lib/validations/checkinSchema";
-import { calculateBurnout, generateInsight, } from "@/lib/services/checkinService";
-import { success, error, } from "@/lib/utils/apiResponse";
+
+import {
+  calculateBurnout,
+  generateInsight,
+} from "@/lib/services/checkinService";
+
+import {
+  success,
+  error,
+} from "@/lib/utils/apiResponse";
+
 import { logger } from "@/lib/logger";
 import { rateLimit } from "@/lib/rateLimiter";
 
@@ -12,7 +21,6 @@ export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest) {
   try {
-    // AUTH
     const user = await getUserFromToken(req);
 
     if (!user) {
@@ -22,7 +30,6 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // GET JOURNALS
     const journals =
       await prisma.journalEntry.findMany({
         where: {
@@ -46,6 +53,7 @@ export async function GET(req: NextRequest) {
     );
 
   } catch (err) {
+
     logger.error("GET JOURNALS ERROR", {
       error:
         err instanceof Error
@@ -62,14 +70,21 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
+
+    // =========================
     // GET IP
+    // =========================
+
     const ip =
       req.headers
         .get("x-forwarded-for")
         ?.split(",")[0]
         ?.trim() || "local";
 
+    // =========================
     // RATE LIMIT
+    // =========================
+
     if (!rateLimit(ip)) {
       return NextResponse.json(
         error("Too many requests"),
@@ -77,7 +92,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // =========================
     // AUTH
+    // =========================
+
     const user = await getUserFromToken(req);
 
     if (!user) {
@@ -87,7 +105,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // =========================
     // PARSE BODY
+    // =========================
+
     let body;
 
     try {
@@ -100,7 +121,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // =========================
     // VALIDATION
+    // =========================
+
     const parsed =
       checkinSchema.safeParse(body);
 
@@ -114,7 +138,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // =========================
     // EXTRACT DATA
+    // =========================
+
     const {
       journal: journalText,
       sleep,
@@ -122,14 +149,16 @@ export async function POST(req: NextRequest) {
       mood,
     } = parsed.data;
 
-    // TODAY RANGE
+    // =========================
+    // CHECK TODAY
+    // =========================
+
     const todayStart = new Date();
     todayStart.setHours(0, 0, 0, 0);
 
     const todayEnd = new Date();
     todayEnd.setHours(23, 59, 59, 999);
 
-    // CHECK TODAY CHECK-IN
     const already =
       await prisma.journalEntry.findFirst({
         where: {
@@ -149,17 +178,63 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // MOCK AI
+    // =========================
+    // AI REQUEST
+    // =========================
+
+    const aiResponse = await fetch(
+      "https://tenang-in-api-model1-production.up.railway.app/predict",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          text: journalText,
+        }),
+      }
+    );
+
+    if (!aiResponse.ok) {
+      return NextResponse.json(
+        error("AI service error"),
+        { status: 500 }
+      );
+    }
+
+    const aiData =
+      await aiResponse.json();
+
+    const probabilities =
+      aiData.emotion.probabilities;
+
+    const emotionLabel =
+      aiData.emotion.label;
+
+    const confidence =
+      aiData.emotion.confidence;
+
+    // =========================
+    // BURNOUT CALCULATION
+    // =========================
+
     const { risk, score } =
       calculateBurnout(
         sleep,
-        workload
+        workload,
+        mood,
+        probabilities.sadness ?? 0
       );
 
     const insight =
       generateInsight(risk);
 
-    // TRANSACTION
+    // =========================
+    // SAVE DATABASE
+    // =========================
+
     const result =
       await prisma.$transaction(
         async (tx: any) => {
@@ -182,21 +257,36 @@ export async function POST(req: NextRequest) {
             await tx.prediction.create({
               data: {
                 userId: user.id,
+
                 journalId:
                   createdJournal.id,
 
-                probAnger: 0.2,
-                probFear: 0.3,
-                probSadness: 0.5,
-                probJoy: 0.1,
-                probDisgust: 0.1,
-                probTrust: 0.4,
-                probAnticipation: 0.2,
+                probAnger:
+                  probabilities.anger ?? 0,
+
+                probFear:
+                  probabilities.fear ?? 0,
+
+                probSadness:
+                  probabilities.sadness ?? 0,
+
+                probJoy:
+                  probabilities.joy ?? 0,
+
+                probDisgust:
+                  probabilities.disgust ?? 0,
+
+                probTrust:
+                  probabilities.trust ?? 0,
+
+                probAnticipation:
+                  probabilities.anticipation ?? 0,
 
                 skorBurnout:
                   score / 100,
 
-                labelRisk: risk,
+                labelRisk:
+                  risk,
               },
             });
 
@@ -205,16 +295,30 @@ export async function POST(req: NextRequest) {
 
             prediction: {
               ...createdPrediction,
+
               insight,
+
+              emotion:
+                emotionLabel,
+
+              confidence,
             },
           };
         }
       );
 
+    // =========================
+    // LOG
+    // =========================
+
     logger.info("CHECKIN CREATED", {
       userId: user.id,
       ip,
     });
+
+    // =========================
+    // RESPONSE
+    // =========================
 
     return NextResponse.json(
       success(
@@ -225,6 +329,7 @@ export async function POST(req: NextRequest) {
     );
 
   } catch (err) {
+
     logger.error("CHECKIN ERROR", {
       error:
         err instanceof Error

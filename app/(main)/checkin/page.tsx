@@ -126,6 +126,29 @@ export default function CheckinPage() {
     },
   ];
 
+  const workloadLevels = [
+    {
+      label: "Very Low",
+      value: "very_low",
+    },
+    {
+      label: "Low",
+      value: "low",
+    },
+    {
+      label: "Medium",
+      value: "medium",
+    },
+    {
+      label: "High",
+      value: "high",
+    },
+    {
+      label: "Very High",
+      value: "very_high",
+    },
+  ];
+
   return (
 
     <div className="min-h-screen bg-[#0f0f14] text-white p-6">
@@ -196,27 +219,23 @@ export default function CheckinPage() {
             ⚡ Tingkat Aktivitas
           </p>
 
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
 
-            {[
-              "low",
-              "medium",
-              "high",
-            ].map((item) => (
+            {workloadLevels.map((item) => (
 
               <button
-                key={item}
+                key={item.value}
                 type="button"
                 onClick={() =>
-                  setWorkload(item)
+                  setWorkload(item.value)
                 }
-                className={`p-4 rounded-xl text-sm capitalize transition border ${
-                  workload === item
-                    ? "bg-purple-600 border-purple-500 scale-105"
-                    : "bg-[#0f0f14] border-gray-700"
+                className={`p-4 rounded-xl text-sm transition-all border font-medium ${
+                  workload === item.value
+                    ? "bg-gradient-to-r from-purple-600 to-fuchsia-500 border-purple-400 text-white scale-105"
+                    : "bg-[#0f0f14] border-gray-700 text-gray-300 hover:border-purple-500"
                 }`}
               >
-                {item}
+                {item.label}
               </button>
 
             ))}
