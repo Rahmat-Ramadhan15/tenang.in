@@ -166,7 +166,7 @@ export async function POST(req: NextRequest) {
     // MODEL 1 
     const emotionResponse =
       await fetch(
-        "https://tenang-in-api-model1-production.up.railway.app/",
+        "https://tenang-in-api-model1-production.up.railway.app/predict",
         {
           method: "POST",
 
@@ -216,7 +216,7 @@ export async function POST(req: NextRequest) {
     // MODEL 2
     const burnoutResponse =
       await fetch(
-        "https://tenangin-production.up.railway.app",
+        "https://tenangin-production.up.railway.app/predict",
         {
           method: "POST",
 
