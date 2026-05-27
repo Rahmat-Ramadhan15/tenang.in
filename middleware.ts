@@ -2,15 +2,14 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
+
   const start = Date.now();
 
   const res = NextResponse.next();
 
   const duration = Date.now() - start;
 
-  console.log(
-    `[${req.method}] ${req.nextUrl.pathname} - ${duration}ms`
-  );
+  console.log(`[API LOG] ${req.method} ${req.nextUrl.pathname} | Duration: ${duration}ms`);
 
   return res;
 }

@@ -163,10 +163,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // MODEL 1 - EMOTION DETECTION AI  
+    // MODEL 1 
     const emotionResponse =
       await fetch(
-        "https://tenang-in-api-model1-production.up.railway.app/predict",
+        "https://tenang-in-api-model1-production.up.railway.app/",
         {
           method: "POST",
 
@@ -213,10 +213,10 @@ export async function POST(req: NextRequest) {
     const insight =
       generateInsight(risk);
 
-    // MODEL 2 - BURNOUT AI
+    // MODEL 2
     const burnoutResponse =
       await fetch(
-        "https://tenangin-production.up.railway.app/predict",
+        "https://tenangin-production.up.railway.app",
         {
           method: "POST",
 
