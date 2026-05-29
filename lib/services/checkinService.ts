@@ -2,65 +2,43 @@ export type Workload = "very_low" | "low" | "medium" | "high" | "very_high";
 export type Mood = "sad" | "bad" | "neutral" | "good" | "excellent";
 export type Risk = "low" | "medium" | "high";
 
-/**
- * Menghitung skor burnout berdasarkan input user dan probabilitas AI.
- */
 export function calculateBurnout(
   sleep: number,
   workload: Workload,
   mood: Mood,
   sadness: number
 ) {
-  let score = 20;
+  let score = 0;
 
-  if (sleep <= 3) score += 35;
-  else if (sleep <= 5) score += 25;
-  else if (sleep <= 6) score += 15;
+  // Tidur (Max 25 pts) - Pola tidur yang buruk adalah indikator utama
+  if (sleep <= 4) score += 25;
+  else if (sleep <= 5) score += 15;
+  else if (sleep <= 6) score += 10;
   else if (sleep >= 8) score -= 5;
 
-  let workloadValue = 1;
-  switch (workload) {
-    case "very_low":
-      workloadValue = 1;
-      break;
-    case "low":
-      workloadValue = 2;
-      break;
-    case "medium":
-      workloadValue = 3;
-      break;
-    case "high":
-      workloadValue = 4;
-      break;
-    case "very_high":
-      workloadValue = 5;
-      break;
-  }
-  score += workloadValue * 5;
+  const workloadMap: Record<Workload, number> = { 
+    "very_low": 0, "low": 5, "medium": 10, "high": 15, "very_high": 20 
+  };
+  score += workloadMap[workload];
 
-  let moodValue = 3;
-  switch (mood) {
-    case "sad":       moodValue = 1; break;
-    case "bad":       moodValue = 2; break;
-    case "neutral":   moodValue = 3; break;
-    case "good":      moodValue = 4; break;
-    case "excellent": moodValue = 5; break;
-  }
- 
-  if (moodValue === 1) score += 30;
-  else if (moodValue === 2) score += 20;
-  else if (moodValue === 3) score += 5;
-  else if (moodValue === 4) score -= 5;
-  else if (moodValue === 5) score -= 10;
+  // Mood (Max 30 pts)
+  const moodMap: Record<Mood, number> = { 
+    "sad": 30, "bad": 20, "neutral": 10, "good": 0, "excellent": -5 
+  };
+  score += moodMap[mood];
 
-  if (sadness >= 0.8) score += 30;
+  // AI Analysis (Max 25 pts) - Memberikan bobot tambahan pada analisis teks
+  if (sadness >= 0.8) score += 25;
   else if (sadness >= 0.5) score += 15;
+  else if (sadness >= 0.3) score += 5;
 
+  // Normalisasi skor antara 0 - 100
   score = Math.min(100, Math.max(0, score));
 
+  // < 35: Low | 35-65: Medium | > 65: High
   let risk: Risk = "low";
-  if (score >= 75) risk = "high";
-  else if (score >= 45) risk = "medium";
+  if (score > 65) risk = "high";
+  else if (score >= 35) risk = "medium";
 
   return { risk, score };
 }

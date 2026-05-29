@@ -416,3 +416,75 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const user = await getUserFromToken(req);
+    if (!user) return NextResponse.json(error("Unauthorized"), { status: 401 });
+
+    const { searchParams } = new URL(req.url);
+    const journalId = searchParams.get("id");
+
+    if (!journalId) return NextResponse.json(error("ID diperlukan"), { status: 400 });
+
+    await prisma.journalEntry.delete({
+      where: { id: journalId, userId: user.id },
+    });
+
+    return NextResponse.json(success(null, "Jurnal berhasil dihapus"));
+  } catch (err) {
+    return NextResponse.json(error("Gagal menghapus jurnal"), { status: 500 });
+  }
+}
+
+export async function PATCH(req: NextRequest) {
+  try {
+    const user = await getUserFromToken(req);
+    if (!user) return NextResponse.json(error("Unauthorized"), { status: 401 });
+
+    const body = await req.json();
+    const { id, teksJurnal, jamTidur, bebanKerja, mood } = body;
+
+    const oldPrediction = await prisma.prediction.findUnique({ where: { journalId: id } });
+
+    if (!oldPrediction) {
+      return NextResponse.json(error("Jurnal tidak ditemukan"), { status: 404 });
+    }
+
+    const { risk, score } = calculateBurnout(
+      jamTidur,
+      bebanKerja,
+      mood,
+      oldPrediction?.probSadness || 0 
+    );
+
+    // Update JournalEntry DAN Prediction secara bersamaan (Transaction)
+    const result = await prisma.$transaction(async (tx) => {
+      // Update Jurnal
+      const updatedJournal = await tx.journalEntry.update({
+        where: { id: id, userId: user.id },
+        data: { 
+          teksJurnal, 
+          jamTidur, 
+          bebanKerja: String(bebanKerja), 
+          mood: String(mood) 
+        },
+      });
+
+      const updatedPrediction = await tx.prediction.update({
+        where: { journalId: id },
+        data: {
+          skorBurnout: score / 100,
+          labelRisk: risk,
+        },
+      });
+
+      return { ...updatedJournal, prediction: updatedPrediction };
+    });
+
+    return NextResponse.json(success(result, "Jurnal berhasil diupdate"));
+  } catch (err) {
+    logger.error("PATCH JOURNALS ERROR", { error: String(err) });
+    return NextResponse.json(error("Gagal update jurnal"), { status: 500 });
+  }
+}

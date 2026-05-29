@@ -21,10 +21,6 @@ export default function CheckinPage() {
 
   const router = useRouter();
 
-  // =========================
-  // STATE
-  // =========================
-
   const [journal, setJournal] =
     useState("");
 
@@ -39,10 +35,6 @@ export default function CheckinPage() {
 
   const [loading, setLoading] =
     useState(false);
-
-  // =========================
-  // SUBMIT
-  // =========================
 
   const handleSubmit = async (
     e: React.FormEvent
@@ -119,10 +111,6 @@ export default function CheckinPage() {
     }
   };
 
-  // =========================
-  // DATA
-  // =========================
-
   const moods: {
     label: Mood;
     emoji: string;
@@ -175,10 +163,7 @@ export default function CheckinPage() {
     },
   ];
 
-  // =========================
-  // UI
-  // =========================
-
+  // ui
   return (
 
     <div className="min-h-screen bg-[#0f0f14] text-white p-6">
