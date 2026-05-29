@@ -141,12 +141,13 @@ export default function HistoryPage() {
             const score = Math.round((item.prediction?.skorBurnout || 0) * 100);
             const risk = item.prediction?.labelRisk || "low";
             return (
-              <div key={item.id} className="relative group">
-                <div className="absolute right-2 top-2 z-10 flex gap-2 opacity-0 group-hover:opacity-100 transition">
-                  <button onClick={(e) => handleEdit(e, item)} className="bg-blue-600 hover:bg-blue-700 px-2 py-1 rounded text-xs text-white">Edit</button>
-                  <button onClick={(e) => handleDelete(e, item.id)} className="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-xs text-white">Hapus</button>
-                </div>
-                <Link href={`/result/${item.id}`}>
+              <div key={item.id} className="relative">
+                  {/* Tombol sekarang selalu muncul dengan opacity-100 (default) */}
+                  <div className="absolute right-2 top-2 z-10 flex gap-2 opacity-100 transition">
+                    <button onClick={(e) => handleEdit(e, item)} className="bg-blue-600 hover:bg-blue-700 px-2 py-1 rounded text-xs text-white">Edit</button>
+                    <button onClick={(e) => handleDelete(e, item.id)} className="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-xs text-white">Hapus</button>
+                  </div>
+                  <Link href={`/result/${item.id}`}>
                   <div className="bg-[#0f0f14] p-4 rounded-lg flex items-center justify-between hover:border-purple-500 border border-transparent transition cursor-pointer">
                     <div>
                       <p className="text-white font-medium">{new Date(item.createdAt).toLocaleDateString("id-ID", { day: "2-digit", month: "long", year: "numeric" })}</p>
