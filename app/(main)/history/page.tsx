@@ -86,10 +86,13 @@ export default function HistoryPage() {
     }
   };
 
+  // Filter hanya data yang memiliki prediksi agar perhitungan tidak NaN
   const validData = data.filter((item) => item.prediction != null);
+
   const averageScoreRaw = validData.length > 0
     ? validData.reduce((acc, item) => acc + (item.prediction?.skorBurnout || 0), 0) / validData.length
     : 0;
+
   const avgScore = (averageScoreRaw * 100).toFixed(1);
   const avgSleep = data.length > 0 ? (data.reduce((acc, item) => acc + item.jamTidur, 0) / data.length).toFixed(1) : 0;
 
@@ -163,7 +166,7 @@ export default function HistoryPage() {
 
       {editingItem && (
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
-          <div className="bg-[#1a1a22] p-6 rounded-xl w-full max-w-lg border border-gray-700 space-y-6 max-h-[90vh] overflow-y-auto">
+          <div className="bg-[#1a1a22] p-6 rounded-xl w-full max-w-lg border border-gray-700 space-y-6">
             <h2 className="text-white text-xl font-bold">Edit Jurnal</h2>
             <div className="space-y-2">
               <label className="text-sm text-gray-400">Apa yang kamu rasakan hari ini?</label>
