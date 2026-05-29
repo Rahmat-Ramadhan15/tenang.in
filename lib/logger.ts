@@ -1,18 +1,20 @@
 import winston from "winston";
 
-// Tambahkan type Transport untuk mengatasi error TypeScript
 const transports: winston.transport[] = [
   new winston.transports.Console(),
 ];
 
-// Hanya tambahkan File transport jika BUKAN di Vercel (Production)
+// Gunakan block ini agar File transport TIDAK DIMUAT saat di produksi
 if (process.env.NODE_ENV !== "production") {
+  // Hanya melakukan require jika tidak di production
+  const { File } = require("winston/lib/winston/transports");
+  
   transports.push(
-    new winston.transports.File({
+    new File({
       filename: "logs/error.log",
       level: "error",
     }),
-    new winston.transports.File({
+    new File({
       filename: "logs/combined.log",
     })
   );
