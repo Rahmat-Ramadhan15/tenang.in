@@ -1,4 +1,4 @@
-# 🧠 Tenang.in
+# Tenang.in
 
 Aplikasi daily check-in untuk memantau kondisi mental dan risiko burnout berbasis Next.js.
 
@@ -6,12 +6,12 @@ Aplikasi daily check-in untuk memantau kondisi mental dan risiko burnout berbasi
 
 ## 🚀 Fitur Utama
 
-- ✍️ Input jurnal harian
-- 😴 Input jam tidur
-- 💼 Input tingkat kesibukan (workload)
-- 🤖 Analisis risiko burnout (low, medium, high)
-- 📊 Visualisasi hasil (score & chart)
-- 💡 Rekomendasi berdasarkan kondisi user
+- Input jurnal harian
+- Input jam tidur
+- Input tingkat kesibukan (workload)
+- Analisis risiko burnout (low, medium, high)
+- Visualisasi hasil (score & chart)
+- Rekomendasi berdasarkan kondisi user
 
 ---
 
@@ -26,7 +26,7 @@ Aplikasi daily check-in untuk memantau kondisi mental dan risiko burnout berbasi
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - Next.js (App Router)
 - React
@@ -35,7 +35,7 @@ Aplikasi daily check-in untuk memantau kondisi mental dan risiko burnout berbasi
 
 ---
 
-## ▶️ Cara Menjalankan
+## Cara Menjalankan
 
 ```bash
 npm install
