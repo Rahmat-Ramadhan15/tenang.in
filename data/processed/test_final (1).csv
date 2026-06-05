@@ -1,0 +1,701 @@
+normalize_text,emotion,source
+kesel banget karena dunia ini tidak pernah memberi ruang bagi kebaikan untuk bertahan lama,anger,huggingface
+rasanya sangat memuaskan bisa menikmati makanan dengan porsi pas,joy,huggingface
+kenapa aku selalu gagal,sadness,huggingface
+hari ini aku bahagia karena bisa berbagi cerita dengan sahabat lama,joy,huggingface
+tidak ngerti kenapa ada orang yang tidak cuci tangan setelah dari toilet,disgust,huggingface
+tidak sabar nunggu hari libur biar bisa habisin waktu bareng dia,anticipation,huggingface
+kepercayaan yang kita miliki adalah pilar terkuat dalam hubungan ini,trust,huggingface
+kesel maksimal karena semua usaha buat capai keinginan ini selalu siasia,anger,huggingface
+ingin banget ada yang sayang tanpa syarat tanpa harus aku berusaha keras,sadness,huggingface
+aku takut semua ini akan berakhir dengan kekecewaan yang mendalam,fear,huggingface
+momen kecil seperti melihat pelangi setelah hujan bikin aku merasa sangat bahagia,joy,huggingface
+ngitung jam terus karena nungguin momen spesial yang udah aku tunggu lama,anticipation,huggingface
+lihat orang makan makanan yang udah jatuh di lantai,disgust,huggingface
+orang yang membuang sampah ke laut benarbenar tidak punya empati,disgust,huggingface
+tidak sabar untuk menjalani hari di mana cinta kita diikat dengan janji suci,anticipation,huggingface
+kamu selalu bisa diandalkan dan itu membuat rasa percayaku semakin besar,trust,huggingface
+kepercayaan ini adalah dasar dari hubungan yang kuat,trust,huggingface
+rasanya sangat bahagia bisa melukis sepanjang hari tanpa gangguan,joy,huggingface
+tidak tahan lagi nungguin keputusan besar yang akan datang,anticipation,huggingface
+rasa takut ini seperti awan gelap yang selalu menggantung di atas kepala,fear,huggingface
+memotret pemandangan alam bikin hati ini penuh kebahagiaan,joy,huggingface
+tidak sabar buat nyobain teknik melukis yang baru aku pelajari,anticipation,huggingface
+tidak bisa berhenti merasa jijik melihat kondisi pasar yang kotor dan berantakan,disgust,huggingface
+aku merasa bahagia saat mendapatkan ide kreatif untuk proyek yang sedang dikerjakan,joy,huggingface
+aku yakin kehadiranmu membuat segalanya menjadi lebih baik,trust,huggingface
+semoga segera ada kepastian tidak tahan lagi nungguin jawaban,anticipation,huggingface
+kesel maksimal buku ini lebih fokus pada deskripsi daripada aksi atau dialog yang menarik,anger,huggingface
+takut salah langkah tapi lebih takut lagi kalau tidak coba sama sekali,fear,huggingface
+kesel maksimal dunia ini terus memberikan tempat pada orang yang tidak layak mendapatkannya,anger,huggingface
+kesel banget karena progress hobiku tidak sesuai harapan padahal udah usaha keras,anger,huggingface
+ingin tahu bagaimana hasil sulaman yang aku kerjakan selama ini,anticipation,huggingface
+gak akan pernah ada yang bisa menggantikan tempat ibu di hati dan hidupku,sadness,huggingface
+aku tidak pernah merasa ragu karena kepercayaan ini telah terbangun,trust,huggingface
+kadang ngerasa gak ada yang bisa kita lakukan ketika ketidakadilan terus terjadi,sadness,huggingface
+kepercayaan yang kamu berikan padaku membuatku semakin yakin menghadapi harihari ke depan,trust,huggingface
+rasanya sangat menyenangkan bisa menyelesaikan tugas tanpa ada revisi,joy,huggingface
+rasa takut ini membuatku merasa seperti semua yang aku lakukan sia sia,fear,huggingface
+rasanya bahagia banget bisa bermain game nostalgia dari masa kecil,joy,huggingface
+marah banget karena progress quest ini terlalu lama dan ngebosenin,anger,huggingface
+aku tahu kita bisa menghadapi tantangan apapun karena kita saling percaya,trust,huggingface
+mengerjakan tugas yang menantang bikin aku merasa lebih hidup dan bahagia,joy,huggingface
+aku percaya kamu akan selalu menjaga kepercayaan ini dengan baik,trust,huggingface
+kepercayaan ini membangun rasa aman yang membuat hubungan kita semakin kuat,trust,huggingface
+tidak sabar buat merasakan momen di mana semua janji kami menjadi nyata,anticipation,huggingface
+rasanya sedih banget ketika semua impian yang dibangun gagal begitu saja,sadness,huggingface
+semakin hari semakin tidak sabar buat ngelihat apa yang akan terjadi,anticipation,huggingface
+rasa takut ini membuatku merasa sangat kecil dan tidak berdaya,fear,huggingface
+pikiranku terus ke hari suci yang akan datang tidak sabar menantikan keajaibannya,anticipation,huggingface
+kenapa perasaan takut ini tidak pernah hilang selalu ada di pikiran,fear,huggingface
+aku bahagia karena bisa menonton serial favorit sambil bersantai,joy,huggingface
+rasa takut ini begitu besar hingga membuatku merasa sangat sulit untuk merasa bahagia,fear,huggingface
+nemu sisa makanan di sela sela sofa,disgust,huggingface
+tidak sabar buat gabung sama komunitas berkebun besok,anticipation,huggingface
+ngerasa sedih banget tiap kali sadar gak ada yang benerbener peduli sama aku,sadness,huggingface
+orang batuk gak tutup mulut di tempat umum,disgust,huggingface
+menyelesaikan misi sulit di game hari ini bikin aku merasa bangga dan bahagia,joy,huggingface
+hitung mundur setiap jam karena besok akan jadi hari yang spesial,anticipation,huggingface
+marah banget karena keinginan yang sudah aku rencanakan sejak lama berakhir dengan kekecewaan,anger,huggingface
+tidak tahan melihat hewan peliharaan yang tidak dirawat dengan baik,disgust,huggingface
+takut kalau apa yang aku perjuangkan sekarang ternyata tidak ada artinya di masa depan,fear,huggingface
+kadang ngerasa sendirian padahal banyak orang di sekitar,sadness,huggingface
+rasanya tidak sabar buat hari senin ketemu klien besar,anticipation,huggingface
+aku jijik banget lihat makanan basi dibiarkan di meja,disgust,huggingface
+rasa takut ini seperti menggerogoti setiap momen kebahagiaan yang aku miliki,fear,huggingface
+marah banget tugas yang seharusnya tanggung jawab tim malah dilempar ke aku,anger,huggingface
+marah banget karena hidup ini tidak pernah kasih ruang buat aku bernafas lega,anger,huggingface
+kesel maksimal karena dunia ini semakin hari semakin egois dan acuh tidak acuh,anger,huggingface
+aku bahagia banget karena bisa mencicipi hidangan seafood yang segar,joy,huggingface
+aku merasa sangat bahagia ketika melihat hasil kerjaku dihargai oleh atasan,joy,huggingface
+aku bahagia banget bisa menemukan easter egg di game kesukaan,joy,huggingface
+bahagia itu saat bisa menikmati secangkir teh di sore hari yang sejuk,joy,huggingface
+tidak sabar buat merasakan atmosfer spiritual di hari suci ini,anticipation,huggingface
+sering takut buat bicara jujur takut kalau nanti malah disalahpahami,fear,huggingface
+jijik lihat orang yang tidak sikat gigi tapi masih mau ngobrol,disgust,huggingface
+marah banget karena setiap kali mencoba teknik baru selalu gagal total,anger,huggingface
+aku tidak pernah merasa ragu karena kepercayaan ini ada bersamaku,trust,huggingface
+setiap saat bersamamu membuatku merasa tenang dan bahagia,trust,huggingface
+setiap kali ragu aku selalu ingat betapa kuat rasa percayaku padamu,trust,huggingface
+pikiranku terus ke perubahan ini semakin hari semakin tidak sabar,anticipation,huggingface
+sering takut kalau nanti akan nyesel karena tidak mengambil kesempatan ini,fear,huggingface
+aku tahu kamu akan selalu memberikan yang terbaik untuk kita,trust,huggingface
+tidak tahan lagi sama perasaan gagal terus setiap kali mencoba menggapai keinginan ini,anger,huggingface
+melihat bunga bermekaran di sepanjang jalan bikin hatiku penuh kebahagiaan,joy,huggingface
+nginjek tai kucing pas lagi pakai sandal jepit,disgust,huggingface
+rasa takut ini begitu besar hingga aku merasa tidak bisa bergerak,fear,huggingface
+merajut syal baru untuk musim dingin selalu bikin aku bahagia,joy,huggingface
+aku sangat takut dengan apa yang akan terjadi selanjutnya rasanya seperti tidak ada harapan,fear,huggingface
+aku merasa sangat jijik melihat orang tidak peduli dengan kebersihan diri mereka,disgust,huggingface
+ngitung hari terus karena tidak sabar buat ngecat miniatur lagi,anticipation,huggingface
+kepercayaan ini adalah dasar dari semua yang kita bangun bersama,trust,huggingface
+tidak habis pikir kenapa server game ini selalu down di jamjam sibuk,anger,huggingface
+sejak ibu meninggal hidupku berubah gak ada lagi sosok yang selalu menguatkanku,sadness,huggingface
+bermain game sandbox bikin aku bebas berkreasi dan merasa bahagia,joy,huggingface
+mau bilang jujur tapi rasa takut bikin semuanya jadi rumit,fear,huggingface
+tidak ada yang bisa menghilangkan rasa takut ini meski aku mencoba sekuat tenaga,fear,huggingface
+tidak sabar banget rasanya waktu berjalan sangat lambat,anticipation,huggingface
+aku takut semua ini akan berakhir dengan cara yang tidak aku inginkan,fear,huggingface
+kepercayaan ini memberi makna baru pada hubungan kita,trust,huggingface
+setiap detik rasanya gugup karena tidak sabar ingin ketemu dia,anticipation,huggingface
+aku masih sering mimpi ibu masih ada di sini tapi kenyataannya beliau udah gak ada,sadness,huggingface
+rasanya ingin menyerah setelah gagal begitu banyak,sadness,huggingface
+tidak sabar buat mencapai keinginan terbesar yang selama ini aku perjuangkan,anticipation,huggingface
+tidak ngerti kenapa ada orang yang nyaman dengan kamar penuh debu,disgust,huggingface
+ketemu keluarga setelah sekian lama rasanya bikin hati ini hangat dan bahagia,joy,huggingface
+aku merasa bahagia ketika bisa menuntaskan tantangan harian di game mobile,joy,huggingface
+rasanya bahagia bisa menyelesaikan tantangan yang awalnya terasa mustahil,joy,huggingface
+tidak habis pikir kenapa penulisnya milih ending yang ngegantung seperti gini,anger,huggingface
+nemu kotoran lalat di makanan penutup,disgust,huggingface
+rasanya ingin langsung lompat ke hari di mana keinginan ini terwujud,anticipation,huggingface
+rasa takut ini membuatku merasa seperti aku selalu berada di ambang kehancuran,fear,huggingface
+aku selalu merasa aman karena kepercayaan ini begitu kuat antara kita,trust,huggingface
+kadang ingin banget ada yang peluk dan bilang semuanya akan baikbaik saja,sadness,huggingface
+tidak sabar ingin lihat senyum dia waktu kita ketemu nanti,anticipation,huggingface
+tidak tahan lagi sama perasaan gagal terus dalam mewujudkan apa yang aku inginkan,anger,huggingface
+tidak habis pikir kenapa semua rencana buat keinginan ini selalu gagal,anger,huggingface
+aku takut dengan semua ketidakpastian ini rasanya seperti tidak ada kendali,fear,huggingface
+kepercayaan ini adalah dasar dari setiap keputusan yang kita ambil,trust,huggingface
+rasanya sangat bahagia bisa membuat kerajinan tangan untuk hiasan rumah,joy,huggingface
+rasanya sangat bahagia ketika melihat hasil kerja keras terbayar dengan baik,joy,huggingface
+kesel maksimal karena mode multiplayernya penuh sama cheater,anger,huggingface
+tidak tahan lagi sama janjijanji kosong yang tidak pernah kamu tepati,anger,huggingface
+aku percaya bahwa kita bisa mengatasi segala tantangan yang datang,trust,huggingface
+rasanya bahagia bisa menikmati makanan sehat yang juga enak,joy,huggingface
+rasa takut ini membuatku merasa seperti tidak ada jalan keluar dari semua ini,fear,huggingface
+tidak sabar buat lihat hasil kerja keras yang bisa wujudkan keinginanku,anticipation,huggingface
+kebahagiaan adalah ketika bisa menikmati waktu sore dengan secangkir teh,joy,huggingface
+beneran tidak tahan lihat orang yang makan dengan mulut penuh dan tidak nutup,disgust,huggingface
+setiap kata yang kamu ucapkan membuatku merasa tenang dan nyaman,trust,huggingface
+tidak tahan sama bau badan orang di gym,disgust,huggingface
+tidak bisa berhenti merasa jijik melihat tumpukan sampah di jalanan,disgust,huggingface
+marah banget karena hidup ini selalu kasih rintangan tanpa henti,anger,huggingface
+setiap momen bersamamu membuktikan betapa tulusnya rasa percayaku padamu,trust,huggingface
+rasanya bahagia ketika bisa mendengar suara alam di pagi hari,joy,huggingface
+aku merasa sangat bahagia ketika bisa mengumpulkan koleksi buku favorit,joy,huggingface
+rasanya bahagia banget bisa kembali menari setelah lama tidak berlatih,joy,huggingface
+tidak tahan lagi ingin segera menjalani momen spiritual yang dinantikan,anticipation,huggingface
+tidak sabar nunggu keputusan dari klien tentang proposal yang aku ajukan,anticipation,huggingface
+melihat orang tidak menjaga kebersihan diri mereka sungguh menjijikkan,disgust,huggingface
+tidak tahan lagi lihat orang yang selalu egois dalam segala hal,anger,huggingface
+pengkhianatan ini ninggalin luka yang mungkin gak akan pernah sembuh,sadness,huggingface
+jijik banget lihat tumpukan piring kotor di dapur umum,disgust,huggingface
+sebenarnya mau bicara tapi takut banget kalau salah ucap dan malah bikin masalah,fear,huggingface
+rasanya bahagia bisa menatap bintangbintang di langit malam yang cerah,joy,huggingface
+kamu selalu memberikan alasan untuk percaya pada setiap kata yang kamu ucapkan,trust,huggingface
+marah banget karena buku ini terlalu berteletele tidak fokus ke plot utama,anger,huggingface
+lingkungan kerja yang tidak bersih membuatku kehilangan semangat,disgust,huggingface
+lihat orang gatel gatelan di tempat umum,disgust,huggingface
+kesel karena setiap kali aku punya ide selalu dipatahkan tanpa alasan,anger,huggingface
+kesel banget karena konflik yang dibangun di awal cerita tidak diselesaikan dengan baik,anger,huggingface
+aku yakin kita bisa mengatasi semua masalah dengan komunikasi yang baik,trust,huggingface
+ingin banget tahu bagaimana reaksi temanteman waktu aku mainkan lagu baru di gitar,anticipation,huggingface
+rasanya bahagia banget bisa menyelesaikan tugas sebelum deadline,joy,huggingface
+aku kesel karena kamu tidak pernah peduli sama halhal yang penting buat aku,anger,huggingface
+rasanya ingin nyerah tiap kali mikirin berapa banyak uang yang harus dikeluarin buat bertahan hidup,sadness,huggingface
+nginjek muntahan di jalan,disgust,huggingface
+tidak habis pikir kenapa aku tidak pernah berhasil nguasain teknik dasar hobiku,anger,huggingface
+tidak sabar buat pakai barang ini tapi ternyata tidak bisa dipakai sama sekali,anger,huggingface
+bahagia itu ketika bisa bangun pagi dan merasakan energi positif sepanjang hari,joy,huggingface
+aku merasa takut setiap kali harus menghadapi situasi yang tidak terduga,fear,huggingface
+takut buat mulai sesuatu yang baru karena takut hasilnya tidak sesuai ekspektasi,fear,huggingface
+rasanya dunia ini cuma peduli sama yang kuat dan gak pernah adil sama yang lemah,sadness,huggingface
+kehilangan sesuatu yang berharga itu bikin dunia terasa runtuh,sadness,huggingface
+aku bahagia bisa bermain game bersama keluarga di malam minggu,joy,huggingface
+tidak sabar buat ngerayain hari spesial kita minggu depan,anticipation,huggingface
+mungkin aku gak pantas buat bahagia,sadness,huggingface
+gugup nunggu kepastian apakah keinginan ini akan terwujud,anticipation,huggingface
+jijik lihat orang batuk tanpa menutup mulut di bioskop,disgust,huggingface
+aku masih ingat semua janji yang kita buat tapi sekarang hubungan ini cuma tinggal kenangan,sadness,huggingface
+kadang ingin berhenti aja udah capek banget,sadness,huggingface
+aku tahu kita bisa mencapai tujuan kita karena saling percaya,trust,huggingface
+rasanya sakit banget ketika harus merelakan hubungan yang dulu pernah begitu indah,sadness,huggingface
+aku merasa bahagia ketika bisa berolahraga dan merasakan energi yang lebih baik,joy,huggingface
+rasanya tidak sabar banget ingin tahu apa yang akan terjadi besok,anticipation,huggingface
+rasanya bahagia ketika bisa menyelesaikan masalah yang sulit dengan cara yang sederhana,joy,huggingface
+aku masih sering berpikir tentang semua hal yang hilang bersamanya,sadness,huggingface
+aku takut bahwa semua usaha yang aku lakukan akan sia sia,fear,huggingface
+nemu cicak mati di lemari baju,disgust,huggingface
+rasa takut ini membuatku merasa seperti semua yang aku lakukan tidak pernah cukup,fear,huggingface
+aku percaya kita bisa menyelesaikan setiap tantangan yang ada,trust,huggingface
+bahagia itu adalah ketika bisa bertemu dengan teman lama dan berbagi cerita,joy,huggingface
+kadang merasa gak adil lihat orang lain bisa hidup nyaman sementara aku harus berjuang keras,sadness,huggingface
+tidak tahan lagi ingin cepat menyelesaikan novel yang lagi aku tulis,anticipation,huggingface
+lingkungan penuh dengan bau tidak sedap dan sampah di manamana,disgust,huggingface
+tidak bisa fokus karena pikiranku terus ke acara besok,anticipation,huggingface
+ingin cepat melihat seluruh keluarga berkumpul di hari suci nanti,anticipation,huggingface
+tidak tahan lihat sampah berserakan di pinggir jalan,disgust,huggingface
+kesel maksimal banyak adegan di buku ini yang tidak logis sama sekali,anger,huggingface
+bersepeda di alam terbuka selalu membuat hatiku penuh kebahagiaan,joy,huggingface
+kenapa ya ada orang yang masih suka buang sampah di jalan,disgust,huggingface
+ketakutan ini begitu kuat hingga aku merasa tidak punya kendali atas hidupku,fear,huggingface
+kadang pengkhianatan datang dari orang yang paling kamu percaya dan itu menyakitkan,sadness,huggingface
+setiap tindakanmu selalu menunjukkan betapa berharganya rasa percayaku padamu,trust,huggingface
+tidak tahan lihat kondisi toilet umum yang penuh kotoran,disgust,huggingface
+melihat orang yang tertindas karena ketidakadilan bikin hati ini hancur,sadness,huggingface
+mengirimkan tugas lebih awal bikin aku merasa lebih tenang dan bahagia,joy,huggingface
+tidak sabar buat mulai bikin kerajinan tangan dari bahanbahan baru,anticipation,huggingface
+kepercayaan ini adalah anugerah yang tidak bisa dinilai dengan uang,trust,huggingface
+lihat orang berbagi makanan dengan orang lain yang lagi sakit,disgust,huggingface
+tidak bisa berhenti mikirin besok pagi karena terlalu senang,anticipation,huggingface
+kesel banget karena hobiku tidak pernah kasih hasil yang sesuai harapan,anger,huggingface
+makan siang dengan hidangan favorit bikin hari kerja terasa lebih ringan,joy,huggingface
+takut buat terbuka takut kalau nanti dikecewakan lagi,fear,huggingface
+melihat matahari terbenam di pantai membuatku merasa begitu bahagia,joy,huggingface
+marah banget karena barang yang baru aja dibeli udah rusak dalam waktu singkat,anger,huggingface
+setiap detik bersamamu mengingatkanku betapa berartinya kepercayaan ini,trust,huggingface
+semakin dekat hari mancing semakin tidak sabar ingin langsung pergi,anticipation,huggingface
+rasanya bahagia ketika bisa berbagi cerita dengan sahabat lama,joy,huggingface
+kadang ingin lari dari dunia yang penuh kebencian ini,sadness,huggingface
+kenapa ya makanan di kulkas ini udah basi tapi masih disimpan,disgust,huggingface
+marah banget karena setiap kali aku berusaha keras hasilnya selalu mengecewakan,anger,huggingface
+aku yakin kamu akan selalu menjaga kepercayaan ini,trust,huggingface
+rasanya tidak tenang karena menunggu kabar penting hari ini,anticipation,huggingface
+aku percaya pada setiap langkah yang kamu ambil untuk kita,trust,huggingface
+aku takut kalau aku akan membuat kesalahan besar yang tidak bisa diperbaiki,fear,huggingface
+aku bahagia karena bisa menikmati hidangan penutup manis setelah makan malam,joy,huggingface
+melihat orang baik terluka di dunia ini bikin aku kehilangan harapan,sadness,huggingface
+marah banget karena musuh di game ini terlalu overpowered,anger,huggingface
+rasanya seperti kehilangan arah tanpa dia,sadness,huggingface
+aku merasa sangat takut setiap kali harus memikirkan tentang apa yang akan datang,fear,huggingface
+setiap tindakanmu membuktikan bahwa kepercayaan ini tidak siasia,trust,huggingface
+rasanya bahagia bisa menghabiskan waktu di studio fotografi hari ini,joy,huggingface
+aku percaya kita bisa mengatasi setiap tantangan yang ada di depan,trust,huggingface
+aku takut kalau aku akan kehilangan semua yang aku cintai,fear,huggingface
+ngitung jam karena tidak sabar buat akhirnya menjalani janji suci yang selama ini dinantikan,anticipation,huggingface
+rasa takut ini membuatku merasa seperti aku tidak pernah bisa membuat keputusan yang benar,fear,huggingface
+ingin rasanya bebas dari beban finansial tapi kenyataan gak sejalan,sadness,huggingface
+bau menyengat di ruang tamu ini benarbenar mengganggu,disgust,huggingface
+tidak tahan dengan bau busuk yang berasal dari tempat sampah umum di sekitar rumahku,disgust,huggingface
+sering takut gagal tapi aku tahu kalau tidak coba aku tidak akan pernah tahu hasilnya,fear,huggingface
+gugup setiap kali memikirkan hari suci yang semakin dekat,anticipation,huggingface
+kesel maksimal tidak pernah puas sama hasil karya dari hobiku,anger,huggingface
+marah banget karena kamu selalu bikin aku merasa kurang dalam hubungan ini,anger,huggingface
+tidak sabar buat hidup yang lebih baik tapi kenyataannya terus bikin frustasi,anger,huggingface
+rasanya frustasi karena barang yang dibeli tidak sesuai dengan spesifikasi,anger,huggingface
+bisa menyelesaikan proyek yang sudah lama ditunda rasanya sangat membahagiakan,joy,huggingface
+aku merasa sangat bahagia bisa berbicara dengan teman yang sudah lama tidak bertemu,joy,huggingface
+lihat orang mandi di tempat umum,disgust,huggingface
+setiap saat bersamamu menguatkan rasa percayaku padamu,trust,huggingface
+menyelesaikan puzzle di game bikin aku merasa puas dan bahagia,joy,huggingface
+masih ngerasa kosong dan kehilangan sejak ibu pergi,sadness,huggingface
+rasanya bahagia ketika bisa memberikan hadiah kejutan kepada orang yang aku cintai,joy,huggingface
+kesel maksimal karena game ini sering crash di tengah jalan,anger,huggingface
+bahagia itu saat bisa menyaksikan anakanak bermain dengan riang,joy,huggingface
+lihat orang garuk garuk kepala terus ketombe beterbangan,disgust,huggingface
+marah banget karena barang yang aku beli cepat banget rusak meskipun baru dipakai sebentar,anger,huggingface
+kepercayaan ini membuat hubungan kita semakin erat dan harmonis,trust,huggingface
+gak ada kata yang bisa ngegambarin betapa sakitnya kehilangan ini,sadness,huggingface
+aku takut banget untuk menghadapi hari esok karena tidak tahu apa yang akan terjadi,fear,huggingface
+rasa takut bikin aku lebih sering menghindar daripada menghadapi masalah,fear,huggingface
+tidak sabar buat tahu apakah aku bisa mencapai semua yang aku inginkan,anticipation,huggingface
+rasanya gugup setiap kali mikirin momen ketemuan nanti,anticipation,huggingface
+kadang ngerasa minder sama pencapaian orang lain,sadness,huggingface
+rasanya campur aduk antara senang dan gugup nunggu hari h,anticipation,huggingface
+kadang ingin menyerah aja karena dunia ini terlalu kejam buat orang yang jujur,sadness,huggingface
+udah capek sabar terus rasanya ingin meledak aja hari ini,anger,huggingface
+tidak sabar buat tamat tapi boss terakhir di game ini susah banget dikalahkan,anger,huggingface
+setiap langkah terasa berat sejak ayah meninggal,sadness,huggingface
+gak pernah ngerasa sekecewa ini pada seseorang yang aku pikir akan selalu ada buatku,sadness,huggingface
+aku merasa bahagia bisa mendengar tawa riang anakanak di sekitar,joy,huggingface
+aku merasa bahagia saat mendapatkan kabar baik dari orang yang aku rindukan,joy,huggingface
+kebahagiaan itu adalah ketika bisa mendengarkan katakata yang menyentuh hati,joy,huggingface
+gak ada yang bisa menggantikan tempatnya di hati,sadness,huggingface
+kesel maksimal match ini tidak adil banget tim lawan jauh lebih kuat,anger,huggingface
+setiap kata darimu selalu membuatku merasa nyaman,trust,huggingface
+rasanya ingin cepat sampai ke momen janji suci yang sudah lama kami nantikan,anticipation,huggingface
+tidak habis pikir kenapa hidup ini kayaknya tidak pernah kasih aku istirahat dari masalah,anger,huggingface
+kesel maksimal hidup ini kayaknya cuma bikin aku lelah tanpa hasil yang berarti,anger,huggingface
+aku tidak tahu kenapa tapi setiap hari selalu ada perasaan takut yang menghantui,fear,huggingface
+gak pernah ngerasa sesakit ini kehilangan seseorang yang sangat berarti,sadness,huggingface
+rasanya senang banget nunggu acara komunitas gaming weekend ini,anticipation,huggingface
+setelah semua usaha ternyata hasilnya gagal lagi,sadness,huggingface
+jijik banget lihat orang tidak sikat gigi tapi langsung makan,disgust,huggingface
+selalu berusaha buat orang lain bahagia tapi gak pernah ada yang peduli sama aku,sadness,huggingface
+tidak bisa sabar lagi ingin cepat tahu bagaimana hasilnya,anticipation,huggingface
+aku bahagia karena hari ini bisa menikmati hidangan baru yang enak,joy,huggingface
+aku yakin kita akan sukses bersama karena rasa percaya yang kuat di antara kita,trust,huggingface
+ngitung hari terus karena tidak sabar buat menjalani janji suci bersama dia,anticipation,huggingface
+terkadang ngerasa gak ada gunanya berjuang kalau ketidakadilan selalu menang,sadness,huggingface
+jijik banget lihat bekas makanan berserakan di meja kafe,disgust,huggingface
+terkadang ngerasa gak punya tempat di dunia yang penuh kejahatan ini,sadness,huggingface
+kadang takut kalau apa yang aku lakukan sekarang tidak akan ada artinya di masa depan,fear,huggingface
+selesai ngerjain tugas tepat waktu bikin aku merasa puas dan bahagia,joy,huggingface
+masih gak percaya ibu udah pergi untuk selamanya,sadness,huggingface
+marah banget karena dunia ini selalu membuat yang baik terasa kecil dan tidak penting,anger,huggingface
+tidak habis pikir kenapa keinginan ini seperti tidak pernah bisa tercapai,anger,huggingface
+tidak tahan lagi sama perasaan gagal setiap kali mencoba teknik baru dalam hobiku,anger,huggingface
+aku bahagia banget karena bisa menyelesaikan tugas dengan hasil yang memuaskan,joy,huggingface
+rasanya sakit banget ketika orang yang aku sayang ternyata gak mau memperjuangkan hubungan ini,sadness,huggingface
+serius  bau got di sini bikin aku mual,disgust,huggingface
+rasanya bahagia banget bisa menuntaskan semua tugas dengan sempurna,joy,huggingface
+gugup nunggu momen road trip pertama buat fotografi landscape,anticipation,huggingface
+rumah terasa sepi sejak ibu meninggalkan kami,sadness,huggingface
+aku percaya kita akan menemukan cara untuk mencapai impian kita,trust,huggingface
+bau toilet umum yang menyengat,disgust,huggingface
+tidak ngerti kenapa kamu selalu bikin aku ngerasa salah padahal kamu yang salah,anger,huggingface
+jijik banget lihat makanan basi masih disimpan di meja makan,disgust,huggingface
+kenapa selalu yang salah yang mendapat keuntungan sementara yang benar terus dirugikan,sadness,huggingface
+kadang aku cuma ingin ngerasain disayang tanpa harus minta,sadness,huggingface
+semakin mendekati hari besar semakin tidak sabar buat lihat hasil akhirnya,anticipation,huggingface
+lihat orang ngupil terus upilnya ditempel di bawah meja,disgust,huggingface
+mengapa orang merasa oke dengan tidak menjaga kebersihan diri mereka,disgust,huggingface
+serius  kenapa ada orang yang tidak peduli sama kebersihan badannya,disgust,huggingface
+marah banget karena game ini sering disconnect padahal koneksi internet stabil,anger,huggingface
+rasanya gak ada tempat buat orang baik di dunia yang penuh ketidakadilan ini,sadness,huggingface
+sedih banget lihat berita banyak anak yang kehilangan orang tuanya,sadness,huggingface
+kasih sayang yang aku butuhin rasanya jauh dari jangkauan,sadness,huggingface
+bahagia itu adalah ketika bisa berbagi pengalaman hidup yang inspiratif,joy,huggingface
+aku tidak pernah merasa ragu karena kepercayaan ini telah terbangun begitu kuat,trust,huggingface
+rasa takut bikin aku terlalu banyak menganalisis sampai akhirnya tidak bertindak sama sekali,fear,huggingface
+besok hari besar dan rasanya tidak sabar banget ingin cepat sampai,anticipation,huggingface
+aku percaya bahwa kita bisa menghadapi setiap tantangan yang ada,trust,huggingface
+tidak ngerti kenapa ada orang yang tidak peduli sama kebersihan badannya,disgust,huggingface
+tidak ngerti kenapa ada orang yang tidak peduli sama kebersihan rumahnya,disgust,huggingface
+setiap keputusan yang kamu ambil selalu membuatku merasa nyaman,trust,huggingface
+aku merasa sangat bahagia karena bisa berkontribusi banyak dalam tim,joy,huggingface
+kesel banget hasil hobiku selalu jauh dari ekspektasi,anger,huggingface
+kenapa sih orang tidak bisa buang sampah di tempatnya jijik banget lihat jalan penuh sampah,disgust,huggingface
+rasanya capek mempertahankan hubungan yang gak lagi sama,sadness,huggingface
+rasanya sangat memuaskan bisa menyelesaikan tugas tanpa ada kendala,joy,huggingface
+berjalan di taman pagi ini sambil mendengar kicauan burung bikin hatiku bahagia,joy,huggingface
+ingin banget segera menyambut momen penting dalam agama di hari suci ini,anticipation,huggingface
+rasanya seperti dihantui rasa penasaran terusterusan karena nunggu kabar,anticipation,huggingface
+tidak tahan sama bau got yang ada di dekat tempat makan,disgust,huggingface
+takut gagal bikin aku tidak bisa menikmati proses belajar dan berjuang,fear,huggingface
+marah banget karena barang yang dikirim berbeda jauh dari ekspektasi,anger,huggingface
+rasa takut bikin aku sering tidak percaya diri buat ambil langkah besar,fear,huggingface
+jijik lihat orang buang air kecil sembarangan di jalan,disgust,huggingface
+aku takut bahwa semua yang aku bangun akan hancur begitu saja,fear,huggingface
+jijik banget lihat makanan basi dibiarkan begitu saja di dapur,disgust,huggingface
+rasa percayaku padamu adalah yang terpenting dalam hubungan ini,trust,huggingface
+kepercayaan ini adalah kekuatan yang menggerakkan kita untuk terus maju,trust,huggingface
+setiap malam aku susah tidur takut besok akan lebih buruk lagi,fear,huggingface
+mengerjakan tugas kelompok dengan temanteman yang solid bikin aku senang,joy,huggingface
+tidak bisa tenang karena pikiranku terus ke janji suci yang akan segera diucapkan,anticipation,huggingface
+kenapa ya ada orang yang nyaman tidur di kasur penuh debu,disgust,huggingface
+rasanya bahagia bisa menghabiskan waktu bermain game bersama temanteman online,joy,huggingface
+setiap keputusan yang kamu buat selalu didasari oleh niat baik,trust,huggingface
+takut kalau terlalu berharap nanti malah kecewa yang datang,fear,huggingface
+setiap momen bersamamu mengajarkan arti sejati dari kepercayaan,trust,huggingface
+takut kalau ternyata mimpimimpi besar yang aku punya tidak akan jadi kenyataan,fear,huggingface
+jijik banget lihat orang makan dengan tangan kotor,disgust,huggingface
+ingin tahu apa yang akan dia rencanain buat anniversary kita,anticipation,huggingface
+tidak bisa duduk tenang karena momen besar ini tinggal beberapa jam lagi,anticipation,huggingface
+tidak sabar buat unlock karakter baru tapi progressnya lambat banget,anger,huggingface
+kepercayaan ini membuat setiap perjalanan kita menjadi lebih berarti,trust,huggingface
+kadang ngerasa hubungan ini terlalu berat untuk dipertahankan,sadness,huggingface
+gugup tiap kali pikiranku melayang ke momen besar yang tinggal sebentar lagi,anticipation,huggingface
+kepercayaan ini adalah fondasi yang membuat hubungan kita kuat,trust,huggingface
+rasanya sakit banget ketika kepercayaan yang aku berikan sepenuh hati dihancurkan,sadness,huggingface
+semakin dekat harinya semakin gugup dan tidak sabar,anticipation,huggingface
+aku percaya kita bisa saling menguatkan dalam setiap langkah,trust,huggingface
+rasanya bahagia ketika bisa berbagi makanan dengan orang lain yang membutuhkan,joy,huggingface
+aku tidak tahan sama bau apek di ruangan ini,disgust,huggingface
+tidak tahan lagi sama karakter di buku ini yang bikin frustrasi terus,anger,huggingface
+semakin dekat dengan hari jadian kita semakin gugup nunggu momen spesial,anticipation,huggingface
+kesel maksimal karena setiap kali berharap lebih kenyataannya selalu mengecewakan,anger,huggingface
+aku yakin kehadiranmu membawa kebaikan dalam hidupku,trust,huggingface
+tidak sabar buat menjalani hari penuh kedamaian dan berkah ini,anticipation,huggingface
+setiap keputusanmu selalu memberikan alasan untuk percaya,trust,huggingface
+jijik lihat orang makan sambil ngobrol dengan mulut penuh,disgust,huggingface
+melihat ketidakadilan terus terjadi tanpa ada yang melawan bikin aku kehilangan harapan,sadness,huggingface
+gugup banget nunggu apakah aku akan bisa melalui perubahan ini dengan baik,anticipation,huggingface
+aku merasa takut setiap kali harus menghadapi situasi yang tidak aku kenal,fear,huggingface
+gugup nunggu kabar baik yang bisa wujudkan keinginanku,anticipation,huggingface
+marah banget karena kamu tidak pernah ada waktu buat aku tapi buat yang lain selalu ada,anger,huggingface
+kehilangan itu berat banget gak tau kapan bisa pulih,sadness,huggingface
+melihat ketidakadilan terus terjadi bikin aku kehilangan harapan pada perubahan,sadness,huggingface
+setiap hari mikir apakah aku bisa menjalani hidup tanpa hubungan ini,sadness,huggingface
+melihat toilet umum yang jorok membuatku sangat tidak nyaman,disgust,huggingface
+rasanya seperti ada beban besar yang tidak bisa aku lepaskan aku sangat takut,fear,huggingface
+aku takut semua ini hanya akan membawa lebih banyak rasa sakit,fear,huggingface
+rasa takut ini begitu kuat hingga membuatku sulit untuk berpikir jernih,fear,huggingface
+rasanya tidak sabar tapi juga sedikit gugup menghadapi harihari setelah perubahan ini,anticipation,huggingface
+selalu ada perasaan cemas yang tidak bisa hilang seperti sesuatu akan terjadi,fear,huggingface
+lingkungan yang penuh dengan asap kendaraan membuatku sulit bernapas,disgust,huggingface
+ingin teriak tapi gak ada suara,sadness,huggingface
+marah banget karena ending bukunya tidak sesuai ekspektasi bikin kecewa,anger,huggingface
+rasanya ingin cepat tahu apakah aku bisa mendapatkan apa yang aku inginkan,anticipation,huggingface
+gak ada yang bisa mengisi kekosongan yang dia tinggalkan,sadness,huggingface
+tidak tahan lagi sama hidup yang terus bikin aku kecewa setiap harinya,anger,huggingface
+kepercayaan ini membuatku yakin bahwa kita ditakdirkan untuk bersama,trust,huggingface
+aku merasakan kebahagiaan ketika mendengarkan lagu favorit yang membawa kenangan indah,joy,huggingface
+lihat sampah berserakan di taman bikin jijik,disgust,huggingface
+bahagia itu ketika bisa mendengar katakata positif dari orang lain,joy,huggingface
+rasa takut ini membuatku merasa seperti tidak ada yang bisa aku percayai,fear,huggingface
+tidak habis pikir kenapa ekonomi makin sulit padahal kita udah kerja keras,anger,huggingface
+jijik banget lihat makanan basi dibiarkan begitu saja di meja,disgust,huggingface
+tidak habis pikir kenapa karakter utama di buku ini harus mati di akhir,anger,huggingface
+tidak sabar buat melihat dampak dari keputusan yang aku ambil untuk berubah,anticipation,huggingface
+aku merasa takut setiap kali harus menghadapi hari yang baru,fear,huggingface
+setiap saat bersamamu membuatku merasa nyaman dan tenang,trust,huggingface
+rasanya benarbenar marah banget hari ini semua hal tidak berjalan seperti yang diharapkan,anger,huggingface
+sering ngerasa takut buat berbicara di depan orang banyak takut salah ucap,fear,huggingface
+ingin cepat tahu apakah semua harapanku akan terwujud nanti,anticipation,huggingface
+gak pernah nyangka kegagalan bisa sesakit ini,sadness,huggingface
+kadang takut buat berbagi cerita karena takut tidak ada yang peduli,fear,huggingface
+tidak tahan sama bau badan orang di sebelah di bus,disgust,huggingface
+bahagia itu adalah ketika bisa merasakan kehangatan matahari pagi,joy,huggingface
+sering takut kalau keputusan yang aku buat sekarang malah bikin hidup jadi lebih rumit,fear,huggingface
+rasa takut ini seperti tembok besar yang menghalangi aku untuk maju,fear,huggingface
+seandainya ada yang benarbenar peduli sama perasaanku,sadness,huggingface
+aku merasa sangat bahagia ketika berhasil naik level di game rpg yang aku mainkan,joy,huggingface
+setiap hari rasanya semakin berat aku takut tidak akan bisa bertahan,fear,huggingface
+aku kecewa banget karena kamu tidak pernah hargai perasaan aku,anger,huggingface
+takut banget kalau nanti kecewa sama keputusan yang aku buat sekarang,fear,huggingface
+jijik lihat orang batuk tanpa tutup mulut di tempat umum,disgust,huggingface
+makan siang dengan hidangan spesial bikin aku merasa bahagia,joy,huggingface
+kesel banget karena keinginan yang sudah lama aku kejar tetap terasa begitu jauh,anger,huggingface
+melukis pemandangan di tepi danau bikin hatiku terasa tenang dan bahagia,joy,huggingface
+tidak tahan lagi sama hidup yang penuh masalah tanpa ada solusinya,anger,huggingface
+aku percaya bahwa kita bisa mencapai puncak bersama,trust,huggingface
+tidak habis pikir kenapa ending buku ini terlalu terburuburu,anger,huggingface
+rasanya sangat bahagia ketika bisa duduk santai dan menikmati waktu luang,joy,huggingface
+kepercayaan ini adalah cahaya yang menerangi setiap langkah kita,trust,huggingface
+tidak ngerti kenapa ada orang yang tidak pernah sikat gigi,disgust,huggingface
+tidak tahan lagi sama sikap kamu yang selalu meremehkan halhal penting buat aku,anger,huggingface
+aku benarbenar merasa jijik melihat sampah berserakan di jalanan,disgust,huggingface
+rasanya hancur banget setelah gagal padahal udah berusaha keras,sadness,huggingface
+melihat orang makan di tempat umum dengan tangan kotor membuatku tidak nyaman,disgust,huggingface
+kesel banget karena grafik game ini sering glitch dan bikin tidak nyaman main,anger,huggingface
+cuma bisa video call sama keluarga gak bisa peluk langsung,sadness,huggingface
+marah banget karena fitur yang dijanjikan di barang ini tidak berfungsi sama sekali,anger,huggingface
+tidak tahan lagi sama rasa kecewa setiap kali keinginanku tidak terwujud,anger,huggingface
+rasa takut ini membuatku sulit untuk berpikir jernih aku tidak tahu harus bagaimana,fear,huggingface
+aku jijik dengan kondisi ruang tamu yang berantakan dan dipenuhi dengan debu,disgust,huggingface
+rasanya bahagia ketika bisa bangun pagi dengan perasaan segar dan siap untuk hari ini,joy,huggingface
+marah banget karena keinginan ini selalu terbentur rintangan yang tidak bisa diatasi,anger,huggingface
+marah banget karena selalu ada halangan di setiap langkah menuju keinginan ini,anger,huggingface
+tidak bisa tenang sama sekali ingin cepetcepet tahu hasilnya,anticipation,huggingface
+setiap keputusanmu selalu menunjukkan bahwa aku bisa mempercayaimu,trust,huggingface
+aku merasa sangat jijik lihat orang ini batuk tanpa menutup mulut bagaimana sih bisa begitu,disgust,huggingface
+tidak sabar buat lihat apa yang terjadi setelah langkah besar ini diambil,anticipation,huggingface
+aku masih merindukan semua hal yang kita lalui bersama tapi sekarang itu tinggal kenangan,sadness,huggingface
+rasanya bahagia banget bisa mencicipi makanan khas dari daerah lain,joy,huggingface
+capek terus berharap dapat kasih sayang tapi gak pernah ada,sadness,huggingface
+capek banget sama masalah hidup,sadness,huggingface
+rasanya seperti dihancurkan dari dalam ketika tahu bahwa kamu telah mengkhianatiku,sadness,huggingface
+marah banget karena dunia ini lebih peduli pada kepentingan pribadi daripada kebenaran bersama,anger,huggingface
+dunia yang kejam ini bikin aku terus mempertanyakan makna kehidupan,sadness,huggingface
+takut buat ambil keputusan yang penting karena takut akan menyesal di kemudian hari,fear,huggingface
+tidak habis pikir kenapa kualitas barang ini jelek banget padahal harganya mahal,anger,huggingface
+berhasil menyelesaikan proyek sebelum deadline bikin aku merasa bangga dan bahagia,joy,huggingface
+tidak tahan lagi sama buku ini yang terlalu banyak dialog tidak relevan,anger,huggingface
+serius kenapa ada orang yang tidak mau bersihin kamar tidur mereka bikin mual banget,disgust,huggingface
+tidak tahan lagi sama tugastugas mendadak yang terus muncul tanpa perencanaan,anger,huggingface
+tidak habis pikir kenapa hal kecil bisa jadi besar marah banget,anger,huggingface
+lihat orang buang air kecil di kolam renang,disgust,huggingface
+sering ngerasa takut kalau apa yang aku impikan cuma ilusi dan tidak bisa diwujudkan,fear,huggingface
+dunia ini terus melukai orangorang yang gak layak untuk disakiti,sadness,huggingface
+lihat orang makan sambil main handphone,disgust,huggingface
+kesel maksimal hal penting banget malah diabaikan begitu aja,anger,huggingface
+aku tidak pernah meragukanmu karena setiap keputusanmu penuh dengan kepercayaan,trust,huggingface
+rasa takut ini begitu besar hingga membuatku merasa tidak ada yang bisa mengerti aku,fear,huggingface
+aku yakin kamu akan selalu memberi motivasi saat aku merasa lelah,trust,huggingface
+gugup banget nunggu hasil tender minggu depan semoga dapat,anticipation,huggingface
+lingkungan kerja yang penuh dengan sampah benarbenar membuatku kehilangan semangat,disgust,huggingface
+setiap momen bersamamu adalah pengingat betapa kuatnya kepercayaan ini,trust,huggingface
+rasa percaya yang kita bangun telah melalui berbagai ujian dan semakin kuat,trust,huggingface
+rasanya menyenangkan bisa menyelesaikan pekerjaan dengan hasil yang sempurna,joy,huggingface
+makan siang bareng temanteman di kantor bikin suasana kerja jadi lebih menyenangkan,joy,huggingface
+jijik banget lihat orang tidak cuci tangan setelah makan,disgust,huggingface
+jijik lihat orang tidak cuci tangan habis dari toilet,disgust,huggingface
+aku percaya kita bisa membangun masa depan yang cerah bersama,trust,huggingface
+rasanya ingin cepat menjalani hari besar saat cinta kami disatukan dalam janji suci,anticipation,huggingface
+tidak sabar buat menghadapi apa yang akan datang minggu depan,anticipation,huggingface
+marah banget karena progress dalam hobiku selalu lambat banget,anger,huggingface
+aku percaya kamu akan terus berjuang demi mimpi kita,trust,huggingface
+tidak tahan lihat orang buang sampah sembarangan di tempat wisata,disgust,huggingface
+gak ada yang lebih menyakitkan daripada melihat orang baik dirugikan oleh ketidakadilan,sadness,huggingface
+aku tidak pernah meragukanmu karena kepercayaan ini sudah terbangun,trust,huggingface
+gak pernah nyangka orang yang aku anggap teman ternyata menusuk dari belakang,sadness,huggingface
+tidak ngerti kenapa orang buang sampah sembarangan di pantai,disgust,huggingface
+setiap hari selalu ada rasa takut kalau apa yang aku perjuangin tidak berhasil,fear,huggingface
+takut banget buat keluar dari zona nyaman karena tidak tahu apa yang ada di luar sana,fear,huggingface
+setiap hari rasanya semakin sulit sejak ibu meninggalkan kita,sadness,huggingface
+tidak tahan sama orang yang batuk tanpa tutup mulut di restoran,disgust,huggingface
+rasanya sangat memuaskan bisa bekerja dengan hasil yang lebih baik dari yang diharapkan,joy,huggingface
+tidak sabar banget melihat bagaimana perubahan ini akan memengaruhi hidupku,anticipation,huggingface
+aku percaya bahwa kita bisa mengatasi semua rintangan bersama,trust,huggingface
+ingin ngerasain punya cukup uang tanpa harus khawatir setiap hari,sadness,huggingface
+gak ada yang lebih bikin khawatir selain mikirin uang yang gak pernah cukup,sadness,huggingface
+nemu lalat di makanan ringan,disgust,huggingface
+aku jijik banget dengan cara orang ini makan mulutnya penuh dan tidak ditutup,disgust,huggingface
+mengapa tidak ada yang peduli dengan kebersihan tempat ini,disgust,huggingface
+tidak habis pikir kenapa hidup ini selalu kasih masalah tanpa solusi,anger,huggingface
+rasa takut ini membuatku merasa seperti selalu ada ancaman yang mengintai,fear,huggingface
+aku percaya bahwa kita bisa menjadi lebih baik bersama,trust,huggingface
+aku merasa sangat bahagia bisa menikmati dessert favorit di sore hari,joy,huggingface
+setiap momen bersamamu menambah rasa syukurku pada hubungan ini,trust,huggingface
+aku masih terus berjuang untuk menerima kenyataan bahwa dia udah pergi,sadness,huggingface
+aku percaya kita akan terus tumbuh bersama dalam cinta,trust,huggingface
+serius kenapa ada orang yang tidak sikat gigi setelah makan bikin mual,disgust,huggingface
+bisa ketemu sama sahabat lama rasanya bikin hati ini penuh kebahagiaan,joy,huggingface
+tidak tahan lagi sama dunia yang penuh dengan ketidakadilan sosial,anger,huggingface
+kehilangan orang tua itu bukan hal yang mudah untuk diterima,sadness,huggingface
+aku percaya bahwa kamu akan selalu ada untukku dalam suka dan duka,trust,huggingface
+rasa takut ini membuatku merasa seperti hidup dalam bayang bayang kegagalan,fear,huggingface
+aku percaya pada ketulusan hatimu dan niat baikmu,trust,huggingface
+melihat bunga bermekaran di musim semi selalu membuat hatiku berbungabunga,joy,huggingface
+rasanya seperti tidak tahan lagi nunggu kabar besar yang akan keluar sebentar lagi,anticipation,huggingface
+marah banget karena tidak ada kejelasan dari atasan tentang masa depan proyek ini,anger,huggingface
+rasanya seperti tidak ada tempat aman lagi aku takut dengan semua ini,fear,huggingface
+lagi takut banget kalau semua yang udah direncanain tidak berjalan sesuai harapan,fear,huggingface
+jijik lihat orang buang ingus sembarangan di jalan,disgust,huggingface
+hari ini rasanya lambat banget karena aku terus mikirin besok,anticipation,huggingface
+menikmati secangkir kopi hangat di pagi yang tenang memberi kebahagiaan,joy,huggingface
+setiap detik berjalan lambat banget pas nunggu kabar penting,anticipation,huggingface
+gugup nunggu dampak perubahan besar yang akan segera terjadi,anticipation,huggingface
+rasa takut ini begitu besar hingga membuatku merasa sangat kesulitan untuk berpikir positif,fear,huggingface
+kadang takut kalau ternyata yang aku kejar selama ini tidak sebanding dengan usaha yang dikeluarkan,fear,huggingface
+aku udah berusaha keras buat menyelamatkan hubungan ini tapi ternyata gak cukup,sadness,huggingface
+aku takut semua yang aku kerjakan selama ini akan sia sia,fear,huggingface
+aku benarbenar jijik melihat rumah yang super berantakan dan tidak terawat,disgust,huggingface
+sering takut buat nyoba hal baru karena takut gagal lagi,fear,huggingface
+setiap kali ingat ayah air mata ini gak bisa berhenti jatuh,sadness,huggingface
+marah banget karena dunia ini cuma memberi panggung untuk orang yang berkuasa bukan yang benar,anger,huggingface
+kebiasaan orang merokok di tempat umum sangat tidak menghormati orang lain,disgust,huggingface
+rasanya gak ada yang peduli sama perasaan dan kebutuhanku,sadness,huggingface
+setiap hal yang kamu lakukan selalu membuatku semakin yakin pada dirimu,trust,huggingface
+ingin cepetcepet dapat peralatan hobi baru yang aku pesan online,anticipation,huggingface
+ingin cepat tahu apakah perubahan ini akan membawa halhal baik ke depannya,anticipation,huggingface
+rasanya tidak sabar buat lihat apa yang terjadi setelah semua usaha ini,anticipation,huggingface
+tidak habis pikir kenapa misi yang aku jalanin selalu gagal padahal udah sesuai instruksi,anger,huggingface
+ingin banget ngerasain dicintai dan diperhatikan dengan tulus,sadness,huggingface
+rasanya sangat bahagia ketika bisa menikmati momen kecil yang begitu berarti dalam hidup,joy,huggingface
+setiap momen bersamamu membuatku merasa beruntung,trust,huggingface
+rasa takut ini membuatku merasa seperti selalu ada sesuatu yang salah,fear,huggingface
+takut buat minta bantuan takut dibilang lemah,fear,huggingface
+kepercayaan ini adalah kekuatan yang membuat hubungan kita semakin kuat,trust,huggingface
+setiap saat bersamamu membuatku semakin percaya padamu,trust,huggingface
+setiap langkah kecil yang kita ambil adalah tanda dari rasa percaya ini,trust,huggingface
+rasa takut ini membuatku merasa seperti tidak ada tempat untuk bersembunyi,fear,huggingface
+lihat orang buang ingus di lantai,disgust,huggingface
+kesel banget dunia ini semakin jauh dari keadilan dan kebenaran yang seharusnya ada,anger,huggingface
+setiap kata darimu membuatku merasa semakin yakin,trust,huggingface
+aku merasa sangat takut dengan semua perubahan yang terjadi saat ini,fear,huggingface
+tidak tahan melihat tumpukan sampah di depan rumah tetangga,disgust,huggingface
+rasa takut ini seperti menghalangi aku untuk mencapai apa yang aku inginkan,fear,huggingface
+bahagia itu ketika bisa makan malam dengan orangorang yang aku cintai,joy,huggingface
+aku percaya kita bisa melalui semua ini bersama dengan langkah yang tepat,trust,huggingface
+setiap langkah yang aku ambil selalu diiringi dengan perasaan takut,fear,huggingface
+semakin hari semakin tidak sabar menyambut momen suci yang penuh berkah ini,anticipation,huggingface
+rasanya tidak sabar untuk mulai persiapan ibadah yang akan dilakukan di hari suci,anticipation,huggingface
+takut buat mempercayai orang lagi karena takut dikecewakan seperti sebelumnya,fear,huggingface
+aku takut bahwa aku tidak akan pernah bisa melewati semua ini dengan baik,fear,huggingface
+aku merasa bahagia ketika bisa merasakan kehadiran orang yang aku cintai,joy,huggingface
+marah banget karena tidak ada waktu cukup buat ngejalanin hobiku dengan serius,anger,huggingface
+tidak habis pikir kenapa setiap kali aku dekat dengan keinginanku selalu ada yang merusaknya,anger,huggingface
+tidak tahan lagi sama dunia yang terus menerus memberikan penderitaan pada banyak orang,anger,huggingface
+ngitung hari terus karena tidak sabar buat ikut lomba lari minggu depan,anticipation,huggingface
+marah banget karena bahan buat hobiku selalu habis di tengah jalan,anger,huggingface
+tidak habis pikir kenapa sistem kerja di sini tidak pernah jelas dan selalu kacau,anger,huggingface
+tidak tahan lagi sama kenyataan hidup yang selalu menyakitkan,anger,huggingface
+gak tau kapan aku bisa melupakan semua yang terjadi di hubungan ini,sadness,huggingface
+tidak bisa berhenti merasa jijik melihat tempat umum yang dipenuhi debu dan kotoran,disgust,huggingface
+tidak sabar buat terima tugas baru yang penuh tantangan,anticipation,huggingface
+setiap momen bersamamu adalah sebuah pelajaran berharga,trust,huggingface
+tidak sabar banget ketemu dia besok rasanya kangen banget,anticipation,huggingface
+rasanya senang banget buat berlatih alat musik baru minggu ini,anticipation,huggingface
+sering takut kalau tidak bisa memenuhi ekspektasi orang lain,fear,huggingface
+gagal lagi bikin aku mulai ragu sama masa depanku,sadness,huggingface
+berhasil merampungkan tugas akhir bikin hatiku penuh kebahagiaan,joy,huggingface
+aku yakin kita akan menemukan jalan terbaik dalam setiap situasi,trust,huggingface
+rasanya sakit banget ketika harus terima ketidakadilan yang terus terjadi,sadness,huggingface
+aku tahu kita bisa mengatasi semua masalah karena kita saling mendukung,trust,huggingface
+rasa sakit karena pengkhianatan ini gak akan pernah hilang,sadness,huggingface
+gugup nunggu laporan keuangan keluar ingin tahu hasilnya,anticipation,huggingface
+nemu ulat di buah apel pas lagi mau dimakan,disgust,huggingface
+rasa takut bikin aku sering ragu buat mulai langkah pertama menuju perubahan,fear,huggingface
+aku merasa sangat bahagia karena bisa membantu tim mencapai target mereka,joy,huggingface
+kesel banget karena warna barang yang datang berbeda dari yang aku pilih,anger,huggingface
+aku merasa sangat takut setiap kali memikirkan tentang masa depan yang penuh ketidakpastian,fear,huggingface
+rasanya ingin cepat mencapai semua mimpi yang sudah aku rencanakan,anticipation,huggingface
+gagal setelah berusaha sekeras ini bikin semua terasa hampa,sadness,huggingface
+marah banget karena ending buku ini terlalu mendadak dan tidak memuaskan,anger,huggingface
+rasanya bahagia banget bisa mendengar kabar baik dari seseorang yang aku rindukan,joy,huggingface
+lagi banyak banget hal yang ditakutin tapi tidak tahu harus mulai dari mana,fear,huggingface
+kadang takut kalau aku tidak bisa memenuhi ekspektasi diriku sendiri,fear,huggingface
+takut banget kalau ternyata apa yang aku lakukan tidak cukup untuk sukses,fear,huggingface
+nemu serangga mati di dalam botol minum,disgust,huggingface
+pikiranku terus ke dia rasanya tidak sabar ingin cepat ketemu,anticipation,huggingface
+ingin cepat tahu respon klien terhadap proposal yang aku buat,anticipation,huggingface
+rasa takut ini membuatku merasa seperti tidak ada yang bisa mengerti perasaanku,fear,huggingface
+aku percaya bahwa kita bisa menghadapi setiap tantangan dengan keyakinan,trust,huggingface
+rasa takut ini begitu besar hingga membuatku merasa tidak ada yang bisa aku lakukan,fear,huggingface
+aku merasa takut setiap kali harus menghadapi hari baru dengan segala ketidakpastiannya,fear,huggingface
+marah banget karena keinginan yang aku punya selalu ditundatunda tanpa hasil,anger,huggingface
+aku masih sering berpikir tentang apa yang salah di hubungan kita,sadness,huggingface
+sulit untuk ngelanjutin hidup setelah kehilangannya,sadness,huggingface
+jijik banget lihat orang ngupil terus tempel di bawah meja tidak ada adab banget,disgust,huggingface
+serius  kenapa ada orang yang tidak sikat gigi selama berhari hari,disgust,huggingface
+setiap kali aku melihatmu aku merasa yakin akan masa depan kita,trust,huggingface
+tidak tahan sama bau mulut orang di ruang tertutup,disgust,huggingface
+marah banget karena barang yang aku terima tidak berfungsi sama sekali,anger,huggingface
+setiap keputusan yang kamu buat selalu memberikan alasan untuk percaya,trust,huggingface
+kadang ngerasa siasia berjuang untuk kebenaran ketika ketidakadilan terus menang,sadness,huggingface
+rasa takut ini membuatku merasa seperti tidak ada yang bisa aku lakukan dengan benar,fear,huggingface
+rasanya kosong banget sejak hubungan ini berakhir,sadness,huggingface
+kadang takut sama apa yang orang lain pikirkan tentang aku,fear,huggingface
+aku percaya kita bisa mencapai kesuksesan bersama,trust,huggingface
+tidak habis pikir kenapa penulis bikin tokoh utama jadi lemah di akhir cerita,anger,huggingface
+kehilangan sesuatu yang kamu sayang itu perasaan yang sangat sulit dijelaskan,sadness,huggingface
+semakin mendekati perubahan semakin tidak bisa berhenti mikirin apa yang akan terjadi,anticipation,huggingface
+gagal bikin aku takut untuk coba lagi,sadness,huggingface
+setiap hari melihat ketidakadilan di manamana bikin hati ini hancur,sadness,huggingface
+aku merasa takut setiap kali harus mengambil keputusan yang besar,fear,huggingface
+kepercayaan yang kita miliki adalah harta yang paling berharga dalam hidup kita,trust,huggingface
+rasanya senang banget nunggu kiriman alat lukis yang aku pesan,anticipation,huggingface
+kadang malu lihat orang lain bisa hidup nyaman sementara aku terus mikirin uang,sadness,huggingface
+kepercayaan ini memberikan semangat dalam setiap langkah kita,trust,huggingface
+lihat orang makan dengan mulut terbuka,disgust,huggingface
+aku merasa sangat bahagia karena bisa menyelesaikan banyak tugas kerja hari ini,joy,huggingface
+setiap keputusanmu selalu membuatku semakin percaya pada hubungan ini,trust,huggingface
+rasa percaya ini memberikan energi positif dalam setiap interaksi kita,trust,huggingface
+kesel banget dunia selalu menempatkan orang yang salah di posisi yang benar,anger,huggingface
+kesel banget karena kerjaan yang harusnya selesai malah molor terus,anger,huggingface
+aku kehilangan pegangan hidupku ketika ibu meninggal,sadness,huggingface
+aku yakin kamu akan selalu mendengarkan dan memahami perasaanku,trust,huggingface
+bau ketek orang di angkot bikin ingin pingsan,disgust,huggingface
+kadang ngerasa bodoh karena udah terlalu percaya sama orang yang akhirnya mengkhianatiku,sadness,huggingface
+rasa takut ini begitu besar hingga membuatku merasa sangat lelah,fear,huggingface
+bahagia itu ketika bisa beristirahat dengan tenang setelah hari yang penuh kegiatan,joy,huggingface
+tidak ada yang bisa menggantikan rasa percaya yang sudah kita bangun bersama,trust,huggingface
+aku takut bahwa semuanya akan berakhir dengan rasa sakit yang mendalam,fear,huggingface
+besok akan jadi momen penting semoga semuanya berjalan lancar,anticipation,huggingface
+rasanya bahagia bisa membantu perusahaan mencapai target penjualan,joy,huggingface
+rasa takut ini begitu besar hingga membuatku merasa seperti tidak ada yang bisa aku lakukan,fear,huggingface
+aku tahu keputusan yang kita ambil bersama adalah yang terbaik untuk masa depan kita,trust,huggingface
+kehilangan seseorang yang selalu ada itu gak pernah mudah,sadness,huggingface
+kepercayaanmu adalah salah satu kekuatan terbesar dalam hidupku,trust,huggingface
+setiap kali aku melihatmu aku merasa tenang karena kepercayaan ini,trust,huggingface
+gugup banget nunggu keputusan yang bisa membuat impianku terwujud,anticipation,huggingface
+aku yakin kamu akan selalu ada di sisiku dalam setiap situasi,trust,huggingface
+kesel maksimal karena proyek yang udah aku kerjakan lama tibatiba dibatalkan,anger,huggingface
+rasanya senang banget buat kencan besok malam,anticipation,huggingface
+rasanya marah banget karena tidak ada yang mau ngertiin kondisi kita,anger,huggingface
+jijik lihat orang makan dengan tangan penuh minyak tanpa cuci tangan,disgust,huggingface
+tidak sabar nunggu kabar tentang kenaikan jabatan semoga lancar,anticipation,huggingface
+aku bahagia karena tugas yang aku kira susah ternyata bisa diselesaikan dengan mudah,joy,huggingface
+aku takut kalau semua ini akan berakhir dengan kekecewaan,fear,huggingface
+ingin cepat tahu bagaimana respon tim terhadap ide yang aku usulkan,anticipation,huggingface
+gak pernah ngerasain dicintai sepenuhnya selalu ada kekurangan yang aku rasain,sadness,huggingface
+aku yakin kita akan selalu menemukan cara untuk bersatu,trust,huggingface
+aku percaya bahwa kita ditakdirkan untuk bersama dan saling mendukung,trust,huggingface
+rasanya sangat memuaskan bisa menyelesaikan side quest yang panjang di game,joy,huggingface
+kebahagiaan itu adalah ketika bisa beristirahat dengan nyaman setelah hari yang melelahkan,joy,huggingface
+melihat orangorang yang terus terluka di dunia yang gak adil ini bikin sedih,sadness,huggingface
+rasanya hampa banget hidup ini,sadness,huggingface
+aku merasa bahagia banget ketika bisa bermain game favorit dengan grafik yang keren,joy,huggingface
+gugup banget nunggu momen besar yang akan terjadi minggu depan,anticipation,huggingface
+rasanya tidak sabar ingin coba resep kue baru besok,anticipation,huggingface
+gugup banget nunggu bagaimana hidupku akan berubah setelah ini,anticipation,huggingface
+tidak tahan lagi nunggu momen penting ini rasanya lama banget,anticipation,huggingface
+aku merasa sangat bahagia bisa menyelesaikan proyek diy di rumah,joy,huggingface
+aku merasa sangat takut untuk menghadapi tantangan yang ada di depanku,fear,huggingface
+jijik banget lihat rambut rontok berserakan di lantai kamar mandi umum,disgust,huggingface
+setiap kali kita bersama aku merasa semakin percaya,trust,huggingface
+lihat orang bersin gak tutup mulut,disgust,huggingface
+setiap kata darimu membuatku semakin yakin bahwa kepercayaan ini tidak akan siasia,trust,huggingface
+jijik lihat makanan basi dibiarkan begitu saja di kulkas,disgust,huggingface
+takut banget kalau semua ini akan berakhir dengan cara yang buruk,fear,huggingface
+nginjek tai kucing pas lagi jalan santai,disgust,huggingface
+marah banget karena tidak ada satu pun hal dalam hidupku yang berjalan lancar,anger,huggingface
+rasanya bahagia ketika bisa tidur siang di hari yang panas,joy,huggingface
+gugup banget menunggu apakah keinginan lama ini bisa jadi kenyataan,anticipation,huggingface
+setiap langkah yang kita ambil bersama menegaskan rasa percaya ini,trust,huggingface
+aku merasa bahagia saat bisa menyelesaikan sesuatu yang sudah lama aku rencanakan,joy,huggingface
+kepercayaan ini adalah kunci dari hubungan yang sehat,trust,huggingface
+aku yakin kita bisa mengatasi setiap tantangan yang ada,trust,huggingface
+kesel banget rasanya dikhianati sama orang yang aku percayai,anger,huggingface
+setiap pengalaman bersama membuatku semakin percaya padamu,trust,huggingface
+rasa takut ini begitu besar hingga aku merasa sangat terisolasi,fear,huggingface
+lihat orang pakai sikat gigi orang lain,disgust,huggingface
+rasanya bahagia ketika bisa menyelesaikan target sebelum tenggat waktu,joy,huggingface
+kesel banget karena kamu selalu bikin aku merasa tidak cukup baik,anger,huggingface
+tidak tahan lihat tumpukan pakaian kotor di kamar jijik banget,disgust,huggingface
+rasanya ingin cepat lihat hasil akhirnya semoga sesuai harapan,anticipation,huggingface
+aku jijik banget lihat orang makan dengan tangan kotor,disgust,huggingface
+rasa takut ini begitu besar hingga aku merasa sangat tertekan setiap hari,fear,huggingface
+setiap hari melihat ketidakadilan di manamana bikin hati ini semakin hancur,sadness,huggingface
+bahagia itu ketika bisa tertawa lepas tanpa alasan yang jelas,joy,huggingface
+aku percaya kita akan melalui semua ini dengan baik karena aku yakin padamu,trust,huggingface
+setiap kali aku melihatmu aku merasa tenang karena kepercayaan yang kita bangun,trust,huggingface
+setiap kenangan bersamanya sekarang hanya tinggal bayangan,sadness,huggingface
+bermain game seharian bikin aku merasa sangat bahagia,joy,huggingface
+aku bahagia karena hari ini bisa makan siang enak dengan sahabat,joy,huggingface
+aku merasa bahagia banget ketika bisa makan di restoran mewah bersama keluarga,joy,huggingface
+aku takut semua orang akan meninggalkanku dan aku akan sendirian,fear,huggingface
+rasa takut ini membuatku merasa seperti aku hidup dalam ketidakpastian yang konstan,fear,huggingface
+rasanya sangat bahagia bisa merayakan pencapaian kecil dengan orang terdekat,joy,huggingface
+makan permen karet yang udah dikunyah orang lain,disgust,huggingface
+rasa takut ini membuatku merasa seperti aku akan kehilangan segalanya,fear,huggingface
+tidak tahan lagi ingin segera mendapatkan apa yang aku idamkan,anticipation,huggingface
+lingkungan yang penuh dengan sampah di setiap sudut benarbenar tidak enak dilihat,disgust,huggingface
+kenapa setiap kali kita ribut kamu selalu pergi bukannya menyelesaikan masalah,anger,huggingface
+rasanya setiap hari semakin mendekat semakin tidak sabar untuk menyucikan diri,anticipation,huggingface
+gak ada yang pernah benerbener ngertiin bagaimana perasaanku,sadness,huggingface
+aku merasa sangat jijik dengan orang yang tidak peduli kebersihan diri,disgust,huggingface
+aku muak dengan cara orang ini mengabaikan kebersihan rumahnya,disgust,huggingface
+gak tau kapan terakhir kali ngerasain kasih sayang yang tulus,sadness,huggingface
